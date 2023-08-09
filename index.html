@@ -183,6 +183,30 @@ blockquote {
     height: 100%;
 }
 
+/* Desktop styles */
+.desktop-pdf {
+    display: block; /* Show on desktop */
+    width: 100%;
+    height: 500px;
+}
+
+.mobile-pdf {
+    display: none; /* Hide on desktop */
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) { /* Adjust the max-width value to your desired breakpoint */
+    .desktop-pdf {
+        display: none; /* Hide on mobile */
+    }
+
+    .mobile-pdf {
+        display: block; /* Show on mobile */
+    }
+
+    /* You can add more styles specific to mobile here */
+}
+
 
 
     </style>
@@ -223,11 +247,17 @@ blockquote {
         <div class="section">
             <h2>Read About My Experience</h2>
             <div class="responsive-pdf-container">
-                <iframe src="documents/class-experience-compressed.pdf" type="application/pdf"></iframe>
+                <!-- Desktop PDF Viewer -->
+                <iframe class="desktop-pdf" src="documents/class-experience-compressed.pdf" type="application/pdf"></iframe>
+                <!-- Mobile PDF Link -->
+                <a href="documents/class-experience-compressed.pdf" target="_blank" class="mobile-pdf">
+                    <img src="imgs/pdf-preview.jpg" alt="Click to view the PDF" style="width: 100%;">
+                </a>
             </div>
             <p>If the document doesn't load, you can <a href="documents/class-experience-compressed.pdf" target="_blank">view it here</a> or download a copy below.</p>
             <a href="https://www.dropbox.com/scl/fi/l78c6cits9xh6q9242cj1/Complete_ABSN_experience.pdf?rlkey=tavih491nhv57akd62mns671t&dl=0" download class="button">Download PDF</a>
         </div>
+        
 
         <div class="section" id="reaching-out">
             <h2>Reaching Out</h2>
