@@ -211,6 +211,20 @@ blockquote {
     text-align: center;
 }
 
+.responsive-video {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.responsive-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .image-container img {
     max-width: 100%;
     height: auto;
@@ -535,6 +549,10 @@ Because what happens is I begged, I asked, I came with the remediation process a
             <h2 style="text-align: center;">At least two were minorities.</h2>
             <img src="imgs/dismissed.png" alt="Logo Description" class="audio-logo"> <!-- Moved icon here -->
             
+        </div>
+
+        <div class="responsive-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YZLpIVqjpHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="help-section">
