@@ -256,7 +256,19 @@ blockquote {
         .ben {
             color: #cc6600;
         }
+/* Responsive design for the image */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: none; /* initially hidden */
+        }
 
+        /* Simple styling for the button */
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
 
 
@@ -268,7 +280,7 @@ blockquote {
             <img src="imgs/dove-logo.png" alt="Dove Logo" class="logo">
             <h2>"My UB Nursing School Experience"</h2>
     
-            
+
         </div>
 
         <div class="section">
@@ -548,13 +560,23 @@ Because what happens is I begged, I asked, I came with the remediation process a
             <h2 style="text-align: center;">No.</h2> 
             <h2 style="text-align: center;">They just let four more students go.</h2>
             <h2 style="text-align: center;">At least two were minorities.</h2>
-            <img src="imgs/dismissed.png" alt="Logo Description" class="audio-logo"> <!-- Moved icon here -->
+            <div style="padding-top: 30px;"></div>
+            <button onclick="toggleImage('img1')">Why?</button>
+            <img id="img1" src="imgs/fail-pt-1.jpg" alt="Placeholder Image 1">
+            <div style="padding-top: 30px;"></div>
+        
+            <button onclick="toggleImage('img2')">Did I fail?</button>
+            <img id="img2" src="imgs/fail-pt-2.jpg" alt="Placeholder Image 2">
+            <div style="padding-top: 30px;"></div>
+        
             
         </div>
 
         <div class="responsive-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/YZLpIVqjpHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Xq_W4qYpxZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
+
+        
 
         <div class="section">
             <h2>The Final Response</h2>
@@ -584,6 +606,10 @@ Because what happens is I begged, I asked, I came with the remediation process a
             <a href="mailto:hearournursingstories@gmail.com" class="button">Think you can help? Lets talk.</a>
 
         </div>
+
+        <div class="responsive-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YZLpIVqjpHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
         
         
         
@@ -599,10 +625,16 @@ Because what happens is I begged, I asked, I came with the remediation process a
             document.getElementById('pdfViewer').style.display = 'none';
             document.getElementById('pdfIframe').src = '';
         }
-
-
-        
           // Auto-scrolling logic
+   
+          function toggleImage(imgId) {
+            const img = document.getElementById(imgId);
+            if (img.style.display === "none" || img.style.display === "") {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        }
           
     </script>
 </body>
