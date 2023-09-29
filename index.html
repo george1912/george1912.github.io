@@ -1,60 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>example.com</title>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Generator for Transfers</title>
     <style>
-      html, body {
-        height: 100%;
-      }
-      body {
-        background-color: #fff;
-        background: radial-gradient(circle at center, #fff 0%, #f8f8f8 75%, #ebebeb 100%);
-        color: #222;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      main {
-        padding: 1rem;
-        text-align: center;
-      }
-      h1 {
-        font-size: 2.5rem;
-        line-height: 1.1;
-        margin: 0;
-      }
-      @media screen and (max-width: 480px) {
-        h1 {
-          font-size: 1.5rem;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
         }
-      }
-      h1::after {
-        content: "";
-        background-color: #ffe800;
-        background: repeating-linear-gradient(45deg, #ffe800, #ffe800 0.5rem, #222 0.5rem, #222 1.0rem);
-        display: block;
-        height: 0.5rem;
-        margin-top: 1rem;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-      p {
-        margin: 1rem 0 0 0;
-      }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button, input[type="submit"] {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
     </style>
-  </head>
-  <body>
-    <main>
-      <h1>A New Era Is Coming</h1>
-      <p>Our website is under construction.</p>
-    </main>
-  </body>
+</head>
+<body>
+    <h2>Email Generator for Transfers</h2>
+    <form id="emailForm">
+        <label for="schoolName">College/School Name:</label>
+        <input type="text" id="schoolName" required><br>
+
+        <label for="department">Department Name:</label>
+        <input type="text" id="department" required><br>
+
+        <label for="prefix">Choose a prefix:</label>
+        <select id="prefix" required>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Other">Other</option>
+        </select><br>
+
+        <div id="advisorsDiv">
+            <label for="recipientFirstName0">Recipient's First Name:</label>
+            <input type="text" id="recipientFirstName0" class="recipientFirstName" required><br>
+
+            <label for="recipientLastName0">Recipient's Last Name:</label>
+            <input type="text" id="recipientLastName0" class="recipientLastName" required><br><br>
+        </div>
+        <button type="button" onclick="addAdvisorField()">Add Another Advisor</button><br><br>
+
+        <input type="submit" value="Generate Email">
+    </form>
+
+    <a id="downloadLink" style="display: none;">Download Email</a>
+    <a id="downloadLink" style="display: none; margin-right: 10px;">Download Email as TXT</a>
+<button id="pdfExportButton" style="display: none;" onclick="exportAsPDF()">Download Email as PDF</button>
+
+
+    <script src="script.js"></script>
+</body>
 </html>
