@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Generator for Transfers</title>
@@ -44,7 +43,6 @@
         button:hover, input[type="submit"]:hover {
             background-color: #0056b3;
         }
-
     </style>
 </head>
 <body>
@@ -76,10 +74,7 @@
         <input type="submit" value="Generate Email">
     </form>
 
-    <a id="downloadLink" style="display: none;">Download Email</a>
-    <a id="downloadLink" style="display: none; margin-right: 10px;">Download Email as TXT</a>
-<button id="pdfExportButton" style="display: none;" onclick="exportAsPDF()">Download Email as PDF</button>
-
+    <button id="downloadLink" style="display: none;">Download Email as TXT</button>
 
     <script src="script.js"></script>
 </body>
