@@ -38,43 +38,38 @@
             border-radius: 4px;
             color: white;
             cursor: pointer;
+            margin-top: 10px;
+            display: block;
         }
 
         button:hover, input[type="submit"]:hover {
             background-color: #0056b3;
+        }
+
+        #downloadLinks {
+            margin-top: 20px;
+        }
+
+        .schoolFields {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <h2>Email Generator for Transfers</h2>
     <form id="emailForm">
-        <label for="schoolName">College/School Name:</label>
-        <input type="text" id="schoolName" required><br>
-
-        <label for="department">Department Name:</label>
-        <input type="text" id="department" required><br>
-
-        <label for="prefix">Choose a prefix:</label>
-        <select id="prefix" required>
-            <option value="Mr">Mr</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Miss">Miss</option>
-            <option value="Other">Other</option>
-        </select><br>
-
-        <div id="advisorsDiv">
-            <label for="recipientFirstName0">Recipient's First Name:</label>
-            <input type="text" id="recipientFirstName0" class="recipientFirstName" required><br>
-
-            <label for="recipientLastName0">Recipient's Last Name:</label>
-            <input type="text" id="recipientLastName0" class="recipientLastName" required><br><br>
+        <div id="schoolDiv">
+            <!-- Placeholder for school details -->
         </div>
-        <button type="button" onclick="addAdvisorField()">Add Another Advisor</button><br><br>
-
+        <button type="button" onclick="addSchoolField()">Add Another School</button><br><br>
         <input type="submit" value="Generate Email">
     </form>
 
-    <button id="downloadLink" style="display: none;">Download Email as TXT</button>
+    <div id="downloadLinks"></div>
+    <button id="clearButton" onclick="clearAll()">Clear Everything</button>
 
     <script src="script.js"></script>
 </body>
