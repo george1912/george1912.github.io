@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,11 +59,17 @@
         }
     </style>
 </head>
+
 <body>
     <h2>Email Generator for Transfers</h2>
     <form id="emailForm">
+        <label for="fromName">Sender's Name:</label>
+        <input type="text" id="fromName" required>
+        <label for="fromEmail">From Email:</label>
+        <input type="text" id="fromEmail" required>
+        <br><br>
         <div id="schoolDiv">
-            <!-- Placeholder for school details -->
+            <!-- Placeholder for school details. -->
         </div>
         <button type="button" onclick="addSchoolField()">Add Another School</button><br><br>
         <input type="submit" value="Generate Email">
@@ -73,4 +80,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

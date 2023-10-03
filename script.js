@@ -1,39 +1,4 @@
 let schoolCount = 1;
-let advisorCounts = [1];
-
-function addAdvisorField(schoolIdx) {
-    const advisorsDiv = document.getElementById(`advisorsDiv${schoolIdx}`);
-    const idx = advisorCounts[schoolIdx] || 1;
-
-    const labelFirstName = document.createElement('label');
-    labelFirstName.setAttribute('for', `recipientFirstName${schoolIdx}-${idx}`);
-    labelFirstName.textContent = "Recipient's First Name:";
-
-    const inputFirstName = document.createElement('input');
-    inputFirstName.type = 'text';
-    inputFirstName.id = `recipientFirstName${schoolIdx}-${idx}`;
-    inputFirstName.className = 'recipientFirstName';
-    inputFirstName.required = true;
-
-    const labelLastName = document.createElement('label');
-    labelLastName.setAttribute('for', `recipientLastName${schoolIdx}-${idx}`);
-    labelLastName.textContent = "Recipient's Last Name:";
-
-    const inputLastName = document.createElement('input');
-    inputLastName.type = 'text';
-    inputLastName.id = `recipientLastName${schoolIdx}-${idx}`;
-    inputLastName.className = 'recipientLastName';
-    inputLastName.required = true;
-
-    advisorsDiv.appendChild(labelFirstName);
-    advisorsDiv.appendChild(inputFirstName);
-    advisorsDiv.appendChild(labelLastName);
-    advisorsDiv.appendChild(inputLastName);
-    advisorsDiv.appendChild(document.createElement('br'));
-    advisorsDiv.appendChild(document.createElement('br'));
-
-    advisorCounts[schoolIdx] = (advisorCounts[schoolIdx] || 1) + 1;
-}
 
 function addSchoolField() {
     const schoolDiv = document.getElementById('schoolDiv');
@@ -71,14 +36,34 @@ function addSchoolField() {
         <option value="Other">Other</option>
     `;
 
-    const advisorsDiv = document.createElement('div');
-    advisorsDiv.id = `advisorsDiv${schoolCount}`;
-    advisorsDiv.className = 'advisorsDiv';
+    const labelToEmail = document.createElement('label');
+    labelToEmail.setAttribute('for', `toEmail${schoolCount}`);
+    labelToEmail.textContent = "To Email:";
+    const inputToEmail = document.createElement('input');
+    inputToEmail.type = 'text';
+    inputToEmail.id = `toEmail${schoolCount}`;
+    inputToEmail.className = 'toEmail';
+    inputToEmail.required = true;
 
-    const buttonAddAdvisor = document.createElement('button');
-    buttonAddAdvisor.type = 'button';
-    buttonAddAdvisor.textContent = 'Add Another Advisor';
-    buttonAddAdvisor.onclick = function() { addAdvisorField(schoolCount); };
+    // Recipient's First Name
+    const labelFirstName = document.createElement('label');
+    labelFirstName.setAttribute('for', `recipientFirstName${schoolCount}`);
+    labelFirstName.textContent = "Recipient's First Name:";
+    const inputFirstName = document.createElement('input');
+    inputFirstName.type = 'text';
+    inputFirstName.id = `recipientFirstName${schoolCount}`;
+    inputFirstName.className = 'recipientFirstName';
+    inputFirstName.required = true;
+
+    // Recipient's Last Name
+    const labelLastName = document.createElement('label');
+    labelLastName.setAttribute('for', `recipientLastName${schoolCount}`);
+    labelLastName.textContent = "Recipient's Last Name:";
+    const inputLastName = document.createElement('input');
+    inputLastName.type = 'text';
+    inputLastName.id = `recipientLastName${schoolCount}`;
+    inputLastName.className = 'recipientLastName';
+    inputLastName.required = true;
 
     schoolFields.appendChild(labelSchoolName);
     schoolFields.appendChild(inputSchoolName);
@@ -86,17 +71,23 @@ function addSchoolField() {
     schoolFields.appendChild(inputDepartment);
     schoolFields.appendChild(labelPrefix);
     schoolFields.appendChild(selectPrefix);
-    schoolFields.appendChild(advisorsDiv);
-    schoolFields.appendChild(buttonAddAdvisor);
+    schoolFields.appendChild(labelToEmail);
+    schoolFields.appendChild(inputToEmail);
+    schoolFields.appendChild(labelFirstName);
+    schoolFields.appendChild(inputFirstName);
+    schoolFields.appendChild(labelLastName);
+    schoolFields.appendChild(inputLastName);
 
     schoolDiv.appendChild(schoolFields);
-    addAdvisorField(schoolCount); // Automatically add an advisor field for the new school
 
     schoolCount++;
 }
 
 document.getElementById('emailForm').addEventListener('submit', function(event) {
     event.preventDefault();
+
+    const fromName = document.getElementById('fromName').value;
+    const fromEmail = document.getElementById('fromEmail').value;
 
     const downloadLinksDiv = document.getElementById('downloadLinks');
     while (downloadLinksDiv.firstChild) {
@@ -108,28 +99,30 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
         const schoolName = school.querySelector('.schoolName').value;
         const department = school.querySelector('.department').value;
         const prefix = school.querySelector('.prefix').value;
+        const toEmail = school.querySelector('.toEmail').value;
+        const recipientFirstName = school.querySelector('.recipientFirstName').value;
+        const recipientLastName = school.querySelector('.recipientLastName').value;
 
-        const recipientFirstNames = school.querySelectorAll('.recipientFirstName');
-        const recipientLastNames = school.querySelectorAll('.recipientLastName');
-
-        for (let i = 0; i < recipientFirstNames.length; i++) {
-            const emailSubject = `Inquiry about Transfer Process to ${schoolName} ${department}`;
-            const emailBody = `Hello ${prefix}. ${recipientLastNames[i].value},
+        const emailSubject = `Inquiry about Transfer Process to ${schoolName} ${department}`;
+        const emailBody = `
+Hello ${prefix} ${recipientLastName},
 
 My name is George Ulloa. I am currently enrolled in a nursing program at a SUNY institution and am interested in exploring ${schoolName}’s Nursing Program.
 
 I am writing to inquire if I might have the opportunity to discuss a few specific questions I have regarding the program, particularly in the context of transfer students. I'm considering a transfer to better align with my educational and professional aspirations and I am eager to understand the transfer process at your esteemed institution.
 
-Would it be possible to arrange a Zoom call or a phone conversation at a time that is convenient for you? It would really assist me in understanding the application process and make sure I am following the correct procedure. If you need any additional information or documentation from me, please don't hesitate to let me know. 
+Would it be possible to arrange a Zoom call or a phone conversation at a time that is convenient for you? It would really assist me in understanding the application process and make sure I am following the correct procedure. If you need any additional information or documentation from me, please don't hesitate to let me know.
 
-Happy to help in any way I can. 
+Happy to help in any way I can.
 
 Thank you for your time reading this email and have a great day.
 
 Best,
 George Ulloa`;
 
-            const emlContent = `To: ${prefix}. ${recipientFirstNames[i].value} ${recipientLastNames[i].value}
+        const emlContent = `
+From: "${fromName}" <${fromEmail}>
+To: ${toEmail}
 Subject: ${emailSubject}
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
@@ -137,9 +130,8 @@ Content-Transfer-Encoding: 7bit
 
 ${emailBody}`;
 
-            generateDownloadLinks(`${schoolName}_${recipientFirstNames[i].value}_${recipientLastNames[i].value}.txt`, emailBody);
-            generateDownloadLinks(`${schoolName}_${recipientFirstNames[i].value}_${recipientLastNames[i].value}.eml`, emlContent);
-        }
+        generateDownloadLinks(`${schoolName}.txt`, emailBody);
+        generateDownloadLinks(`${schoolName}.eml`, emlContent);
     }
 });
 
@@ -167,9 +159,7 @@ function clearAll() {
         downloadLinksDiv.removeChild(downloadLinksDiv.firstChild);
     }
     schoolCount = 1;
-    advisorCounts = [1];
-    addSchoolField(); // Add a fresh set of fields after clearing
+    addSchoolField();
 }
 
-// Call addSchoolField once to set up the first school's fields
 addSchoolField();
