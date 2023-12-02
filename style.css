@@ -1,0 +1,20 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f3f3f3;
+}
+
+#passwordSection {
+  margin-top: 50px;
+}
+
+#passwordInput {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#contentSection h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
