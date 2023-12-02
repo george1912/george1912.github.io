@@ -1,27 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>3rd Floor 3D Floor Plan</title>
+    <title>3D Object Viewer</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-<div id="passwordSection">
-    <input type="password" id="passwordInput" placeholder="Enter password to view the floor plan">
-    <button onclick="checkPassword()">Submit</button>
-</div>
-
-<div id="contentSection" style="display:none;">
-    <h1>3rd Floor 3D Floor Plan</h1>
-    <iframe
-        src="https://3d.magicplan.app/#embed/?key=YOUR_KEY"
-        width="100%"
-        height="600px"
-        allowfullscreen="true"
-        style="border: 0;">
-    </iframe>
-</div>
-
-<script src="script.js"></script>
+    <div id="canvas-container"></div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
