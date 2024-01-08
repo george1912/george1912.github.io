@@ -10,13 +10,19 @@
  /* Reset and Basic Elements */
 
 
-body, h1, h2, h3, p, a, button {
+body, h1, h2, h3, a, button {
   margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
   vertical-align: baseline;
 }
+
+p {
+  max-width: 600px; /* or any value you prefer */
+  margin: auto; /* This centers the text block */
+}
+
 
 /* HTML5 Display-Role Reset */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -27,7 +33,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
-  background-color: #f8f8f8;
+  background-color: white;
   line-height: 1.6;
 }
 
@@ -104,6 +110,36 @@ section {
   border: none;
 }
 
+
+.image-container {
+  width: 50%; /* Adjust this to control the size of the image */
+  margin: 0 auto; /* Center the container */
+  display: block;
+}
+
+.image-container img {
+  width: 100%; /* Image will scale within the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+.image-container-profile img {
+  width: 30%; /* Image will scale within the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .image-container {
+    width: 80%; /* Larger percentage for smaller screens */
+  }
+}
+
+
+
 /* Footer Styles */
 footer a {
   color: white;
@@ -148,7 +184,7 @@ footer a:hover {
     <header>
         <h1>George's Portfolio</h1>
         
-          <div class="image-container">
+          <div class="image-container-profile">
             <img src="imgs/computer_profile.png" alt="My Image" class="responsive-image">
           </div>
         <p>Welcome to my personal collection of work.</p>
@@ -161,6 +197,10 @@ footer a:hover {
         <p>
             I'm George Ulloa, a tech-savvy marketing developer with experience at top firms like Capital One and The New York Times. Skilled in React.js, SQL, and Python, I excel in creating innovative marketing solutions. My expertise extends to email development and CRM integration, backed by a solid academic foundation in Project Management and Information Systems from NYU. If you're looking for a blend of technology and marketing skills, feel free to reach out to me at <a href="mailto:george.ulloa1990@gmail.com">george.ulloa1990@gmail.com</a>.
         </p>
+
+        <div class="image-container">
+          <img src="https://i.pinimg.com/originals/b8/ba/79/b8ba798cc393f599e41b7d2a52ea0ee2.gif" alt="My Image" class="responsive-image">
+        </div>
         
         
     </section>
@@ -219,6 +259,11 @@ footer a:hover {
       <iframe src="emails/nyt-cooking-onboarding.html" class="email-iframe"></iframe>
   </div>
 </div>
+
+<div class="image-container">
+  <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/261a2673116977.5bfecec84d810.gif" alt="My Image" class="responsive-image">
+</div>
+
 </section>
 
 <section id="featured-work">
@@ -228,6 +273,13 @@ footer a:hover {
       <p>Participated in the design and development of the NYT Cooking Subscription Landing Page. The project involved creating an engaging and user-friendly interface to enhance the user experience and increase subscription rates.</p>
       <a class="email-preview-btn" href="https://www.nytimes.com/subscription/cooking/gift.html?campaignId=79JKU" target="_blank">View LP</a>
   </div>
+
+  <div class="image-container">
+    <img src="https://i.pinimg.com/originals/41/fe/5d/41fe5dbe30a570621741bb93163dcf7d.gif" alt="My Image" class="responsive-image">
+  </div>
+
+  
+
 </section>
 
 <section id="strategy-innovation">
@@ -243,6 +295,13 @@ footer a:hover {
   <button class="email-preview-btn" onclick="openEmail('docs/Strategy-Project_Scope_Document.pdf')">View Project Scope</button>
 
   </div>
+
+  <div class="image-container">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/87518c73116977.5bfecec84ce9f.gif" alt="My Image" class="responsive-image">
+  </div>
+
+
+
 </section>
 
     

@@ -7,6 +7,12 @@ body, h1, h2, h3, p, a, button {
   vertical-align: baseline;
 }
 
+p {
+  max-width: 600px; /* or any value you prefer */
+  margin: auto; /* This centers the text block */
+}
+
+
 /* HTML5 Display-Role Reset */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
