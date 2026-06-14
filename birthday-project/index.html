@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Birthday Project</title>
+    <meta
+      name="description"
+      content="A handmade birthday project about friendship, care, and making something from the heart."
+    >
+    <link rel="stylesheet" href="styles.css?v=frame-fit-2">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A handmade birthday piece</p>
+        <h1 id="page-title">The Birthday Project</h1>
+        <p class="backstory">
+          A little bit of backstory for this project: originally, the author was not able to make it
+          to a birthday party, and that absence stayed with him. He wanted to make something special,
+          the kind of thing that felt equal to the value of the friendship. Of course, like most big
+          ideas from the heart, the first version grew into something huge. It was going to be a
+          website, a whole experience, a gift with a lot of moving parts.
+        </p>
+        <p class="backstory">
+          This time, the scope became quieter and more personal. The goal was simple: make something
+          by hand, make it feel honest, and let it say what can be hard to say out loud. This project
+          is a small virtual canvas, made to be read slowly, listened to, and kept.
+        </p>
+      </section>
+
+      <section class="gallery single-gallery" aria-label="Birthday project piece">
+        <article class="piece" data-piece>
+          <div class="piece-header">
+            <p>Front and back</p>
+            <div class="piece-actions" aria-label="Canvas actions">
+              <a class="download-link" href="assets/pdf-one.pdf" download>Download front</a>
+              <a class="download-link" href="assets/pdf-two.pdf" download>Download back</a>
+              <button class="icon-button" type="button" data-flip aria-pressed="false" aria-label="Flip the birthday canvas">
+                <span aria-hidden="true">↻</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="flip-stage">
+            <div class="flip-card" data-card>
+              <div class="canvas-face canvas-front">
+                <div class="frame">
+                  <object class="pdf-view" data-pdf-src="assets/pdf-one.pdf#toolbar=0&navpanes=0" type="application/pdf"></object>
+                  <div class="pdf-placeholder">
+                    <p class="placeholder-title">PDF One</p>
+                    <p>Drop your first PDF at <strong>assets/pdf-one.pdf</strong>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="canvas-face canvas-back">
+                <canvas class="memory-canvas" width="700" height="900" aria-hidden="true"></canvas>
+                <div class="frame back-frame">
+                  <object class="pdf-view" data-pdf-src="assets/pdf-two.pdf#toolbar=0&navpanes=0" type="application/pdf"></object>
+                  <div class="pdf-placeholder alt">
+                    <p class="placeholder-title">PDF Two</p>
+                    <p>Drop the back side PDF at <strong>assets/pdf-two.pdf</strong>.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="audio-card" aria-labelledby="music-title">
+        <div>
+          <p class="eyebrow">Soundtrack</p>
+          <h2 id="music-title">Listen to the music that inspired the piece</h2>
+        </div>
+        <div class="player">
+          <button class="play-button" type="button" data-audio-toggle aria-label="Play or pause reading music">
+            <span data-play-icon aria-hidden="true">▶</span>
+          </button>
+          <div class="track-copy">
+            <p data-audio-status>A little soundtrack for the moment.</p>
+            <audio data-audio src="assets/reading-music.m4a" preload="metadata"></audio>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" aria-labelledby="about-title">
+        <div class="portrait-slot">
+          <img data-portrait alt="Author portrait">
+          <div class="portrait-fallback" aria-hidden="true">Photo</div>
+        </div>
+        <div>
+          <p class="eyebrow">About the author</p>
+          <h2 id="about-title">A Journey Is Coming to a Close</h2>
+          <p>
+            A note from the author: part of making this piece has been reconnecting with his roots and
+            remembering the kind of person he wants to be. He is currently moving through his last
+            semester of nursing school, finally nearing the end of a long road while facing big
+            decisions and big changes. He apologizes for his absence, but hopes it is always known that
+            he is there whenever he is needed. For now, he is trying to make it to the beach this
+            summer and breathe a little before the next chapter begins.
+          </p>
+          <p>
+            If there is any song that captures who the author is, it is this one.
+          </p>
+          <div class="mini-player">
+            <button class="mini-play" type="button" data-audio-toggle-secondary aria-label="Play or pause author music">▶</button>
+            <span data-secondary-status>Author section music</span>
+            <audio data-secondary-audio src="assets/author-music.mp3" preload="metadata"></audio>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

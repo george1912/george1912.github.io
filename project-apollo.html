@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Apollo</title>
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <style>
+    :root {
+      --canvas: #f5f4ef;
+      --canvas-deep: #e8e4d7;
+      --ink: #171717;
+      --subtle: #57544c;
+      --night: #0f1f2f;
+      --night-soft: #1f3f60;
+      --line: rgba(23, 23, 23, 0.12);
+      --paper: #fdfcf8;
+      --accent: #0f6ab8;
+      --ok: #0a7c51;
+      --error: #a82525;
+      --blur: 0 30px 100px rgba(15, 31, 47, 0.2);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(70vw 60vh at 20% -10%, rgba(15, 106, 184, 0.12), transparent 60%),
+        radial-gradient(50vw 40vh at 90% 10%, rgba(15, 31, 47, 0.1), transparent 68%),
+        linear-gradient(180deg, var(--canvas), var(--canvas-deep));
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background: rgba(245, 244, 239, 0.83);
+      border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    }
+
+    .topbar-inner {
+      width: min(1200px, 93vw);
+      margin: 0 auto;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .wordmark {
+      font-family: "Iowan Old Style", Georgia, serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--subtle);
+    }
+
+    .back-link {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+    }
+
+    .back-link:hover {
+      border-bottom-color: var(--ink);
+    }
+
+    .back-link-light {
+      color: #f6f5ef;
+      border-bottom-color: rgba(246, 245, 239, 0.45);
+    }
+
+    .back-link-light:hover {
+      border-bottom-color: #f6f5ef;
+    }
+
+    .gate-wrap {
+      width: min(980px, 92vw);
+      margin: 58px auto 44px;
+      background: rgba(253, 252, 248, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--blur);
+      padding: 28px;
+    }
+
+    .gate-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.8rem;
+      color: var(--subtle);
+      margin: 0;
+    }
+
+    .gate-wrap h1 {
+      margin: 10px 0 8px;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(2.6rem, 6.4vw, 5rem);
+      line-height: 0.97;
+    }
+
+    .gate-subtitle {
+      font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+      color: var(--subtle);
+      max-width: 58ch;
+      margin: 0 0 18px;
+    }
+
+    .gate-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .gate-form input {
+      border: 1px solid #b8b2a1;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      min-height: 48px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      transition: box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .gate-form input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(15, 106, 184, 0.24);
+    }
+
+    .gate-form button,
+    .logout {
+      border: none;
+      border-radius: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      color: #ffffff;
+      background: linear-gradient(130deg, var(--night-soft), var(--night));
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+
+    .gate-form button:hover,
+    .logout:hover {
+      filter: brightness(1.08);
+    }
+
+    .message {
+      min-height: 24px;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    .message.error {
+      color: var(--error);
+    }
+
+    .message.ok {
+      color: var(--ok);
+    }
+
+    .gate-note {
+      margin: 4px 0 0;
+      color: var(--subtle);
+      font-size: 0.92rem;
+    }
+
+    .is-hidden {
+      display: none;
+    }
+
+    #portalContent {
+      width: 100%;
+      overflow: clip;
+    }
+
+    .story-section {
+      width: min(1240px, 93vw);
+      margin: 0 auto;
+      padding: 12vh 0;
+      border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    }
+
+    .story-hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      color: var(--subtle);
+    }
+
+    .display {
+      margin: 0;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(2.5rem, 7.8vw, 6.8rem);
+      line-height: 0.94;
+    }
+
+    .lede {
+      margin-top: 20px;
+      max-width: 52ch;
+      color: #2c2a25;
+      font-size: clamp(1.05rem, 2.7vw, 1.35rem);
+    }
+
+    .hero-visual {
+      min-height: 460px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.95), rgba(230, 234, 238, 0.5) 35%, transparent 62%),
+        repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0) 0 18px, rgba(255, 255, 255, 0.16) 18px 20px),
+        linear-gradient(170deg, #274a69, #0f2131 66%);
+      box-shadow: 0 30px 100px rgba(10, 18, 28, 0.42);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: auto -16% -28% auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249, 245, 228, 0.8), rgba(249, 245, 228, 0));
+      filter: blur(8px);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .chapter {
+      position: sticky;
+      top: 90px;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.75rem;
+    }
+
+    .content h2 {
+      margin: 0;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(2rem, 5.3vw, 4.3rem);
+      line-height: 0.98;
+      max-width: 16ch;
+    }
+
+    .content p {
+      max-width: 60ch;
+      color: #2e2a22;
+      font-size: 1.08rem;
+      margin: 16px 0 0;
+    }
+
+    .split {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(253, 252, 248, 0.62);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .panel h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #2e3b49;
+    }
+
+    .panel ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .panel li {
+      margin-bottom: 8px;
+    }
+
+    .milestone-bar {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .milestone {
+      background: linear-gradient(160deg, #ffffff, #ece6d8);
+      border: 1px solid rgba(23, 23, 23, 0.12);
+      border-radius: 12px;
+      min-height: 118px;
+      padding: 14px;
+    }
+
+    .milestone span {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #655f53;
+      margin-bottom: 10px;
+    }
+
+    .milestone strong {
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.2;
+      color: #22211d;
+    }
+
+    .closing {
+      padding-bottom: 16vh;
+      border-bottom: none;
+    }
+
+    .closing-card {
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #f6f5ef;
+      background:
+        linear-gradient(120deg, rgba(31, 63, 96, 0.94), rgba(15, 31, 47, 0.96)),
+        radial-gradient(circle at 85% 0%, rgba(255, 255, 255, 0.32), transparent 45%);
+      box-shadow: 0 28px 80px rgba(15, 31, 47, 0.35);
+    }
+
+    .closing-card h2 {
+      margin: 0;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(2rem, 5.2vw, 4.1rem);
+      line-height: 0.98;
+      max-width: 14ch;
+    }
+
+    .closing-card p {
+      max-width: 56ch;
+      margin: 16px 0 0;
+      color: rgba(246, 245, 239, 0.9);
+    }
+
+    .closing-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 500ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .story-hero {
+        min-height: 0;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 380px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter {
+        position: static;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .milestone-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .gate-wrap {
+        margin-top: 26px;
+        padding: 18px;
+      }
+
+      .gate-form {
+        grid-template-columns: 1fr;
+      }
+
+      .story-section {
+        padding: 10vh 0;
+      }
+
+      .milestone-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="back-link" href="index.html">Back to portfolio</a>
+      <span class="wordmark">Project Apollo</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="gate-wrap" id="gateCard">
+      <p class="gate-kicker">Private access</p>
+      <h1>The hub is here.</h1>
+      <p class="gate-subtitle">
+        Project Apollo is a story of healthcare, organization, and discipline.
+        Enter password to unlock the full narrative.
+      </p>
+
+      <form class="gate-form" id="gateForm" novalidate>
+        <label for="passwordInput" class="is-hidden">Password</label>
+        <input id="passwordInput" name="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
+        <button type="submit">Unlock Apollo</button>
+      </form>
+      <div id="feedback" class="message" aria-live="polite"></div>
+      <p class="gate-note">Simple front-end password gate for light privacy.</p>
+    </section>
+
+    <div id="portalContent" class="is-hidden">
+      <section class="story-section story-hero reveal">
+        <div>
+          <p class="eyebrow">Project Apollo</p>
+          <h1 class="display">Healthcare is care.<br>Organization is how we deliver it.</h1>
+          <p class="lede">
+            This project is a personal system and portfolio expression. It documents how I
+            turn nursing school intensity into repeatable structure, better decisions,
+            and more confident clinical execution.
+          </p>
+        </div>
+        <div class="hero-visual" aria-hidden="true"></div>
+      </section>
+
+      <section class="story-section reveal">
+        <div class="story-grid">
+          <aside class="chapter">Chapter 01<br>Why this exists</aside>
+          <div class="content">
+            <h2>Not just healthcare. A system for showing up prepared.</h2>
+            <p>
+              I am building Apollo as a living operations model: one place for study plans,
+              skills progression, and reflection loops. The aim is consistency under pressure,
+              with tools that make each week easier to execute than the last.
+            </p>
+            <div class="split">
+              <article class="panel">
+                <h3>Care Lens</h3>
+                <ul>
+                  <li>Patient safety starts with personal readiness.</li>
+                  <li>Clarity reduces avoidable errors.</li>
+                  <li>Reflection drives better interventions.</li>
+                </ul>
+              </article>
+              <article class="panel">
+                <h3>Organization Lens</h3>
+                <ul>
+                  <li>Weekly planning before daily execution.</li>
+                  <li>Evidence over mood for studying priorities.</li>
+                  <li>Small systems outperform bursts of effort.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section reveal">
+        <div class="story-grid">
+          <aside class="chapter">Chapter 02<br>What Apollo builds</aside>
+          <div class="content">
+            <h2>One private hub. Multiple workflows.</h2>
+            <p>
+              Apollo combines a study OS, skill checkoff confidence tracking, and a structured
+              clinical reflection archive. Together they create a narrative of progress instead
+              of scattered notes.
+            </p>
+            <div class="split">
+              <article class="panel">
+                <h3>Active Workstreams</h3>
+                <ul>
+                  <li>Med-surg topic planner with impact ranking.</li>
+                  <li>Skills checkoff tracker with confidence trend.</li>
+                  <li>Rotation notes template with post-shift prompts.</li>
+                </ul>
+              </article>
+              <article class="panel">
+                <h3>In Development</h3>
+                <ul>
+                  <li>Question-bank rehearsal rhythm by weak category.</li>
+                  <li>Exam sprint dashboard for seven-day windows.</li>
+                  <li>Weekly review scorecard and bottleneck log.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section reveal">
+        <div class="story-grid">
+          <aside class="chapter">Chapter 03<br>Milestones</aside>
+          <div class="content">
+            <h2>Build cadence from now through clinical rotations.</h2>
+            <p>
+              Apollo is built in phases: stabilize daily workflow, improve exam performance,
+              and ship a reusable operating model that can evolve with each semester.
+            </p>
+            <div class="milestone-bar">
+              <article class="milestone">
+                <span>Phase 1</span>
+                <strong>Weekly command center and topic prioritization.</strong>
+              </article>
+              <article class="milestone">
+                <span>Phase 2</span>
+                <strong>Skills confidence trend and prep loop before checkoffs.</strong>
+              </article>
+              <article class="milestone">
+                <span>Phase 3</span>
+                <strong>Clinical reflection engine with intervention patterns.</strong>
+              </article>
+              <article class="milestone">
+                <span>Phase 4</span>
+                <strong>Portfolio-ready showcase of system thinking in healthcare.</strong>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section closing reveal">
+        <article class="closing-card">
+          <h2>Project Apollo is self-expression through execution.</h2>
+          <p>
+            The goal is simple: show how design, discipline, and empathy can live in one
+            system. This is where I document the build, sharpen the process, and turn learning
+            into care-ready action.
+          </p>
+          <div class="closing-actions">
+            <button class="logout" id="logoutButton" type="button">Lock Portal</button>
+            <a class="back-link back-link-light" href="index.html">Return Home</a>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var APOLLO_PASSWORD = "apollo2026";
+      var STORAGE_KEY = "projectApolloUnlocked";
+
+      var gateForm = document.getElementById("gateForm");
+      var passwordInput = document.getElementById("passwordInput");
+      var feedback = document.getElementById("feedback");
+      var gateCard = document.getElementById("gateCard");
+      var portalContent = document.getElementById("portalContent");
+      var logoutButton = document.getElementById("logoutButton");
+
+      function markReveals() {
+        var items = document.querySelectorAll(".reveal");
+
+        if (!("IntersectionObserver" in window)) {
+          for (var i = 0; i < items.length; i += 1) {
+            items[i].classList.add("is-visible");
+          }
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          for (var j = 0; j < entries.length; j += 1) {
+            if (entries[j].isIntersecting) {
+              entries[j].target.classList.add("is-visible");
+              observer.unobserve(entries[j].target);
+            }
+          }
+        }, { threshold: 0.16 });
+
+        for (var k = 0; k < items.length; k += 1) {
+          observer.observe(items[k]);
+        }
+      }
+
+      function showPortal() {
+        gateCard.classList.add("is-hidden");
+        portalContent.classList.remove("is-hidden");
+        feedback.className = "message ok";
+        feedback.textContent = "Access granted.";
+        markReveals();
+      }
+
+      function showError(message) {
+        feedback.className = "message error";
+        feedback.textContent = message;
+      }
+
+      function lockPortal() {
+        sessionStorage.removeItem(STORAGE_KEY);
+        portalContent.classList.add("is-hidden");
+        gateCard.classList.remove("is-hidden");
+        passwordInput.value = "";
+        feedback.className = "message";
+        feedback.textContent = "Portal locked.";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      if (sessionStorage.getItem(STORAGE_KEY) === "true") {
+        showPortal();
+      }
+
+      gateForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var typed = passwordInput.value.trim();
+
+        if (!typed) {
+          showError("Enter a password first.");
+          return;
+        }
+
+        if (typed === APOLLO_PASSWORD) {
+          sessionStorage.setItem(STORAGE_KEY, "true");
+          showPortal();
+          return;
+        }
+
+        sessionStorage.removeItem(STORAGE_KEY);
+        showError("Incorrect password. Try again.");
+      });
+
+      if (logoutButton) {
+        logoutButton.addEventListener("click", lockPortal);
+      }
+    })();
+  </script>
+</body>
+</html>
