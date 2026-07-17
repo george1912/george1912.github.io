@@ -1,0 +1,71 @@
+Fox Timer — Install & Use Guide
+================================
+
+Recommended browser: Google Chrome
+
+
+WHAT IT IS
+----------
+Fox Timer is a small Chrome extension that helps keep ATI pages
+from timing out while you work.
+
+
+INSTALL (about 2 minutes)
+-------------------------
+1. Unzip the Fox Timer folder somewhere easy to find
+   Example: Documents → FoxTimer
+   Keep this folder. Do not delete it later.
+
+2. Open Google Chrome.
+
+3. In the address bar, type:
+   chrome://extensions
+   Then press Enter.
+
+4. Turn Developer mode ON (toggle in the top-right).
+
+5. Click "Load unpacked".
+
+6. Select the unzipped Fox Timer folder
+   (the folder that contains manifest.json).
+
+7. Optional: click the puzzle piece in Chrome and pin Fox Timer.
+
+
+HOW TO USE
+----------
+1. Open your ATI page in Chrome.
+2. Click the Fox Timer icon.
+3. Choose what you are working on.
+4. Enter how many minutes you want.
+5. Press Play.
+
+Keep the ATI window focused while it runs.
+
+
+PROFILES
+--------
+ATI Lesson     Keeps the session awake and can move pages forward
+Video Case     Keeps the session awake; closes when time is up
+Assessment     You answer; when time is up it finishes for you
+Popup Case     For Real Life popups (Beta) — check the window at the end
+
+
+IF SOMETHING GOES WRONG
+-----------------------
+You can remove it anytime:
+
+1. Go to chrome://extensions
+2. Find Fox Timer / ITA Lecture Assist Timer
+3. Click Remove
+
+No account. No subscription. It just uninstalls.
+
+
+TIPS
+----
+• Use Google Chrome for the best experience
+• Try a short timer first (2–5 minutes)
+• Advanced options can be ignored
+
+Version 1.0.0
