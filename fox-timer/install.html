@@ -25,7 +25,7 @@
       right: 0;
       z-index: 50;
       background: #111;
-      padding: 12px 16px;
+      padding: 10px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -33,8 +33,10 @@
     }
 
     .backbar a {
-      display: inline-block;
-      padding: 10px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
       background: #fff;
       color: #111;
       text-decoration: none;
@@ -46,10 +48,29 @@
 
     .backbar a:hover { background: #eee; }
 
-    .backbar .label {
+    .backbar a img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid #111;
+      background: #f5f1ee;
+    }
+
+    .backbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: #fff;
       font-size: 15px;
       font-weight: 700;
+    }
+
+    .backbar .brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      background: #f5f1ee;
     }
 
     .top {
@@ -59,12 +80,15 @@
       text-align: center;
     }
 
-    .top img {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
-      background: #fff;
-      margin-bottom: 12px;
+    .top-logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 18px;
+      background: #f5f1ee;
+      border: 2px solid #fff;
+      margin: 0 auto 14px;
+      display: block;
+      object-fit: contain;
     }
 
     .top h1 {
@@ -78,6 +102,24 @@
       max-width: 28ch;
       font-size: 20px;
       color: #ddd;
+    }
+
+    .step-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #555;
+    }
+
+    .step-brand img {
+      width: 22px;
+      height: 22px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background: #f5f1ee;
     }
 
     .note {
@@ -350,12 +392,18 @@
 </head>
 <body>
   <nav class="backbar">
-    <a href="./">← Back to Fox Timer</a>
-    <span class="label">Install Guide</span>
+    <a href="./">
+      <img src="assets/icon128.png" width="28" height="28" alt="" />
+      ← Back to Fox Timer
+    </a>
+    <div class="brand">
+      <img src="assets/icon128.png" width="32" height="32" alt="Fox Timer" />
+      <span>Fox Timer · Install</span>
+    </div>
   </nav>
 
   <header class="top">
-    <img src="assets/icon128.png" width="72" height="72" alt="Fox Timer" />
+    <img class="top-logo" src="assets/icon128.png" width="88" height="88" alt="Fox Timer logo" />
     <h1>Install Fox Timer</h1>
     <p>Follow the pictures. Use Google Chrome.</p>
   </header>
@@ -373,6 +421,10 @@
         <div>
           <h2>Open Chrome Extensions</h2>
           <p>Click the top bar in Chrome. Type this, then press Enter:</p>
+          <div class="step-brand">
+            <img src="assets/icon128.png" width="22" height="22" alt="" />
+            Fox Timer setup
+          </div>
         </div>
       </div>
       <div class="picture">
@@ -393,6 +445,10 @@
         <div>
           <h2>Turn on Developer mode</h2>
           <p>Look in the top-right. Flip the switch so it turns green / ON.</p>
+          <div class="step-brand">
+            <img src="assets/icon128.png" width="22" height="22" alt="" />
+            Fox Timer setup
+          </div>
         </div>
       </div>
       <div class="picture">
@@ -416,6 +472,10 @@
         <div>
           <h2>Click “Load unpacked”</h2>
           <p>After Developer mode is on, this button appears. Click it.</p>
+          <div class="step-brand">
+            <img src="assets/icon128.png" width="22" height="22" alt="" />
+            Fox Timer setup
+          </div>
         </div>
       </div>
       <div class="picture">
@@ -436,6 +496,10 @@
         <div>
           <h2>Choose the Fox Timer folder</h2>
           <p>Select the unzipped folder (the one with the fox files inside), then Open.</p>
+          <div class="step-brand">
+            <img src="assets/icon128.png" width="22" height="22" alt="" />
+            Fox Timer setup
+          </div>
         </div>
       </div>
       <div class="picture">
@@ -450,6 +514,10 @@
         <div>
           <h2>Use it while you study</h2>
           <p>Open ATI → click the fox icon → set minutes → press Play. Then focus on learning.</p>
+          <div class="step-brand">
+            <img src="assets/icon128.png" width="22" height="22" alt="" />
+            Fox Timer setup
+          </div>
         </div>
       </div>
       <div class="picture">
@@ -460,7 +528,10 @@
 
     <div class="cta">
       <a class="primary" href="fox-timer-extension.zip" download>Download ZIP</a>
-      <a class="back-black" href="./">← Back to Fox Timer</a>
+      <a class="back-black" href="./">
+        <img src="assets/icon128.png" width="22" height="22" alt="" style="vertical-align:-5px;border-radius:5px;margin-right:6px;background:#f5f1ee;" />
+        ← Back to Fox Timer
+      </a>
     </div>
 
     <div class="remove">

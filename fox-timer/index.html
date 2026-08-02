@@ -75,6 +75,22 @@
       letter-spacing: 0.06em;
     }
 
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .hero-brand img {
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid #f2f2f2;
+      background: #f5f1ee;
+      flex-shrink: 0;
+      image-rendering: pixelated;
+    }
+
     h1 {
       margin: 0;
       font-size: 28px;
@@ -215,8 +231,13 @@
       </div>
       <div class="screen">
         <p class="prompt">Last login: Beta Wave 001</p>
-        <h1>Fox Timer</h1>
-        <p class="invite">You’ve been invited to the first beta.<span class="cursor" aria-hidden="true"></span></p>
+        <div class="hero-brand">
+          <img src="assets/icon128.png" width="56" height="56" alt="Fox Timer logo" />
+          <div>
+            <h1>Fox Timer</h1>
+            <p class="invite">You’ve been invited to the first beta.<span class="cursor" aria-hidden="true"></span></p>
+          </div>
+        </div>
         <p class="blurb">
           Keeps your ATI page awake so you can focus on studying —
           not babysitting the screen.
