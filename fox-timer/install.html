@@ -15,6 +15,41 @@
       color: #111;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: 1.45;
+      padding-top: 72px;
+    }
+
+    .backbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: #111;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .backbar a {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #fff;
+      color: #111;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      border: 2px solid #fff;
+      border-radius: 10px;
+    }
+
+    .backbar a:hover { background: #eee; }
+
+    .backbar .label {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
     }
 
     .top {
@@ -110,55 +145,91 @@
       background: #fafafa;
     }
 
-    .chrome-window {
+    .picture img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #111;
+      border-radius: 12px;
+      background: #fff;
+      display: block;
+    }
+
+    .caption {
+      margin: 10px 0 0;
+      font-size: 17px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    /* Mini looping demos (GIF-like) */
+    .demo {
+      margin-top: 14px;
       border: 2px solid #111;
       border-radius: 12px;
       background: #fff;
       overflow: hidden;
     }
 
-    .chrome-bar {
+    .demo-label {
+      padding: 8px 12px;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .demo-stage {
+      padding: 16px;
+      min-height: 110px;
+    }
+
+    .demo-bar {
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 10px 12px;
-      background: #ececec;
-      border-bottom: 2px solid #111;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #bbb;
-      border: 1px solid #777;
-    }
-
-    .address {
-      flex: 1;
-      background: #fff;
-      border: 1.5px solid #111;
+      border: 2px solid #111;
       border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 16px;
       font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 16px;
+      background: #fff;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
-    .chrome-body {
-      padding: 16px;
+    .demo-bar .typed::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      margin-left: 2px;
+      background: #111;
+      vertical-align: -2px;
+      animation: blink 1s steps(1) infinite;
     }
 
-    .row {
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .typing .typed {
+      display: inline-block;
+      max-width: 0;
+      overflow: hidden;
+      animation: typeout 4s steps(22) infinite;
+    }
+
+    @keyframes typeout {
+      0%, 15% { max-width: 0; }
+      55%, 85% { max-width: 22ch; }
+      100% { max-width: 0; }
+    }
+
+    .toggle-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .label-lg {
       font-size: 20px;
       font-weight: 800;
     }
@@ -167,24 +238,38 @@
       width: 64px;
       height: 34px;
       border-radius: 999px;
-      background: #1a7f37;
       border: 2px solid #111;
+      background: #bbb;
       position: relative;
+      animation: toggleOn 2.8s ease-in-out infinite;
     }
 
     .toggle::after {
       content: "";
       position: absolute;
       top: 2px;
-      right: 2px;
+      left: 2px;
       width: 26px;
       height: 26px;
       border-radius: 50%;
       background: #fff;
       border: 2px solid #111;
+      animation: knob 2.8s ease-in-out infinite;
     }
 
-    .btn-fake {
+    @keyframes toggleOn {
+      0%, 35% { background: #bbb; }
+      50%, 85% { background: #1a7f37; }
+      100% { background: #bbb; }
+    }
+
+    @keyframes knob {
+      0%, 35% { left: 2px; }
+      50%, 85% { left: 30px; }
+      100% { left: 2px; }
+    }
+
+    .pulse-btn {
       display: inline-block;
       padding: 12px 16px;
       border: 2px solid #111;
@@ -192,94 +277,25 @@
       background: #e8f0fe;
       font-size: 18px;
       font-weight: 800;
+      animation: pulse 1.8s ease-in-out infinite;
     }
 
-    .btn-fake.dark {
-      background: #111;
-      color: #fff;
-    }
-
-    .btn-fake.highlight {
-      outline: 4px solid #ffbf3c;
-      outline-offset: 2px;
-    }
-
-    .folder {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px;
-      border: 2px dashed #111;
-      border-radius: 12px;
-      background: #fff;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .folder-icon {
-      width: 44px;
-      height: 34px;
-      background: #ffd76a;
-      border: 2px solid #111;
-      border-radius: 4px 10px 4px 4px;
-      position: relative;
-    }
-
-    .folder-icon::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: -2px;
-      width: 18px;
-      height: 8px;
-      background: #ffd76a;
-      border: 2px solid #111;
-      border-bottom: 0;
-      border-radius: 4px 4px 0 0;
-    }
-
-    .ext-card {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      padding: 14px;
-      border: 2px solid #111;
-      border-radius: 12px;
-      background: #fff;
-    }
-
-    .ext-card img {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      border: 1.5px solid #111;
-    }
-
-    .ext-card strong {
-      display: block;
-      font-size: 18px;
-    }
-
-    .ext-card span {
-      font-size: 15px;
-      color: #555;
-    }
-
-    .arrow {
-      margin: 8px 0 0;
-      font-size: 17px;
-      font-weight: 700;
-      color: #111;
+    @keyframes pulse {
+      0%, 100% { outline: 0 solid #ffbf3c; }
+      50% { outline: 6px solid #ffbf3c; }
     }
 
     .cta {
       margin-top: 28px;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     .cta a {
       display: inline-block;
-      margin: 6px;
       padding: 16px 22px;
       border-radius: 12px;
       border: 2px solid #111;
@@ -292,6 +308,11 @@
     }
 
     .cta a.primary {
+      background: #111;
+      color: #fff;
+    }
+
+    .cta a.back-black {
       background: #111;
       color: #fff;
     }
@@ -328,16 +349,21 @@
   </style>
 </head>
 <body>
+  <nav class="backbar">
+    <a href="./">← Back to Fox Timer</a>
+    <span class="label">Install Guide</span>
+  </nav>
+
   <header class="top">
     <img src="assets/icon128.png" width="72" height="72" alt="Fox Timer" />
     <h1>Install Fox Timer</h1>
-    <p>Easy picture guide. Use Google Chrome.</p>
+    <p>Follow the pictures. Use Google Chrome.</p>
   </header>
 
   <div class="note">
     <strong>Before you start</strong>
-    Download the ZIP first, then unzip it into a folder you’ll keep
-    (example: Documents → FoxTimer).
+    Download the ZIP, then double-click it to unzip.
+    Keep the folder (example: Documents → FoxTimer). Don’t delete it later.
   </div>
 
   <div class="wrap">
@@ -346,17 +372,16 @@
         <div class="num">1</div>
         <div>
           <h2>Open Chrome Extensions</h2>
-          <p>In Chrome’s address bar, type this exactly, then press Enter:</p>
+          <p>Click the top bar in Chrome. Type this, then press Enter:</p>
         </div>
       </div>
       <div class="picture">
-        <div class="chrome-window">
-          <div class="chrome-bar">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <div class="address">chrome://extensions</div>
-          </div>
-          <div class="chrome-body">
-            <p class="arrow">↑ Type that into the top bar</p>
+        <img src="assets/guide/step1-extensions.jpg" alt="Type chrome://extensions in the Chrome address bar" width="900" height="675" loading="lazy" />
+        <p class="caption">Type: chrome://extensions</p>
+        <div class="demo" aria-hidden="true">
+          <div class="demo-label">Watch · typing demo</div>
+          <div class="demo-stage typing">
+            <div class="demo-bar"><span class="typed">chrome://extensions</span></div>
           </div>
         </div>
       </div>
@@ -367,21 +392,19 @@
         <div class="num">2</div>
         <div>
           <h2>Turn on Developer mode</h2>
-          <p>Look in the top-right corner. Flip this switch ON.</p>
+          <p>Look in the top-right. Flip the switch so it turns green / ON.</p>
         </div>
       </div>
       <div class="picture">
-        <div class="chrome-window">
-          <div class="chrome-bar">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <div class="address">chrome://extensions</div>
-          </div>
-          <div class="chrome-body">
-            <div class="row">
-              <div class="label-lg">Developer mode</div>
-              <div class="toggle" aria-hidden="true"></div>
+        <img src="assets/guide/step2-developer.jpg" alt="Developer mode toggle turned ON" width="900" height="675" loading="lazy" />
+        <p class="caption">Developer mode = ON</p>
+        <div class="demo" aria-hidden="true">
+          <div class="demo-label">Watch · toggle demo</div>
+          <div class="demo-stage">
+            <div class="toggle-row">
+              <span>Developer mode</span>
+              <div class="toggle"></div>
             </div>
-            <p class="arrow">↑ This should be green / ON</p>
           </div>
         </div>
       </div>
@@ -392,18 +415,16 @@
         <div class="num">3</div>
         <div>
           <h2>Click “Load unpacked”</h2>
-          <p>A new button appears after Developer mode is on.</p>
+          <p>After Developer mode is on, this button appears. Click it.</p>
         </div>
       </div>
       <div class="picture">
-        <div class="chrome-window">
-          <div class="chrome-bar">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <div class="address">chrome://extensions</div>
-          </div>
-          <div class="chrome-body">
-            <span class="btn-fake highlight">Load unpacked</span>
-            <p class="arrow">↑ Click this button</p>
+        <img src="assets/guide/step3-load.jpg" alt="Load unpacked button highlighted" width="900" height="675" loading="lazy" />
+        <p class="caption">Click Load unpacked</p>
+        <div class="demo" aria-hidden="true">
+          <div class="demo-label">Watch · click demo</div>
+          <div class="demo-stage">
+            <span class="pulse-btn">Load unpacked</span>
           </div>
         </div>
       </div>
@@ -414,15 +435,12 @@
         <div class="num">4</div>
         <div>
           <h2>Choose the Fox Timer folder</h2>
-          <p>Pick the unzipped folder that has the Fox Timer files inside.</p>
+          <p>Select the unzipped folder (the one with the fox files inside), then Open.</p>
         </div>
       </div>
       <div class="picture">
-        <div class="folder">
-          <div class="folder-icon" aria-hidden="true"></div>
-          <div>FoxTimer<br /><span style="font-size:15px;font-weight:500;color:#555">the unzipped folder</span></div>
-        </div>
-        <p class="arrow">Then click Open / Select</p>
+        <img src="assets/guide/step4-folder.jpg" alt="Select the FoxTimer folder" width="900" height="675" loading="lazy" />
+        <p class="caption">Pick the FoxTimer folder → Open</p>
       </div>
     </section>
 
@@ -430,24 +448,19 @@
       <div class="step-head">
         <div class="num">5</div>
         <div>
-          <h2>You’re done!</h2>
-          <p>You should see Fox Timer installed. Open ATI, click the fox icon, set time, press Play.</p>
+          <h2>Use it while you study</h2>
+          <p>Open ATI → click the fox icon → set minutes → press Play. Then focus on learning.</p>
         </div>
       </div>
       <div class="picture">
-        <div class="ext-card">
-          <img src="assets/icon128.png" width="48" height="48" alt="" />
-          <div>
-            <strong>ITA Lecture Assist Timer</strong>
-            <span>Installed · Ready to use</span>
-          </div>
-        </div>
+        <img src="assets/guide/step5-play.jpg" alt="Fox Timer popup with Play button" width="900" height="675" loading="lazy" />
+        <p class="caption">Press Play, then study</p>
       </div>
     </section>
 
     <div class="cta">
       <a class="primary" href="fox-timer-extension.zip" download>Download ZIP</a>
-      <a href="./">Back to Fox Timer</a>
+      <a class="back-black" href="./">← Back to Fox Timer</a>
     </div>
 
     <div class="remove">
