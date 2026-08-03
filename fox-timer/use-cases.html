@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fox Timer — Use Cases</title>
+  <meta name="description" content="What each Fox Timer profile is for — real study use cases." />
+  <link rel="icon" type="image/png" href="assets/icon128.png" />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #bdbdbd;
+      color: #111;
+      font-family: "Chicago", "Monaco", "Courier New", monospace;
+      padding: 72px 14px 48px;
+    }
+
+    .backbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: #111;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .backbar a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: #fff;
+      color: #111;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      border: 2px solid #fff;
+    }
+
+    .backbar a:hover { background: #eee; }
+
+    .backbar a img,
+    .backbar .brand img {
+      width: 28px;
+      height: 28px;
+      background: #f5f1ee;
+      border: 1px solid #111;
+    }
+
+    .backbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .stack {
+      width: min(680px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .window {
+      background: #fff;
+      border: 2px solid #000;
+      box-shadow: 4px 4px 0 #000;
+    }
+
+    .titlebar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 8px;
+      border-bottom: 2px solid #000;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          #fff 0 1px,
+          #000 1px 2px,
+          #fff 2px 3px,
+          #000 3px 4px
+        );
+    }
+
+    .traffic {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #000;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .titlebar span {
+      background: #fff;
+      padding: 0 8px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .screen {
+      background: #000;
+      color: #f2f2f2;
+      padding: 24px 22px;
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-brand img {
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid #f2f2f2;
+      background: #f5f1ee;
+      image-rendering: pixelated;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .blurb {
+      margin: 14px 0 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #d8d8d8;
+      max-width: 42ch;
+    }
+
+    .panel { padding: 18px; background: #f7f7f7; }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .panel > p {
+      margin: 0 0 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+      max-width: 52ch;
+    }
+
+    .dropdown-mock {
+      display: inline-block;
+      margin: 0 0 16px;
+      padding: 10px 12px;
+      border: 2px solid #000;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      min-width: 220px;
+    }
+
+    .dropdown-mock small {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #666;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .case {
+      border: 2px solid #000;
+      background: #fff;
+      padding: 14px;
+      margin-top: 10px;
+    }
+
+    .case h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .case p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .case .do {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #bbb;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .case .do strong { color: #000; }
+
+    .badge {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border: 1px solid #000;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      vertical-align: middle;
+    }
+
+    .highlight {
+      border-color: #000;
+      background: #fffdf2;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 2px solid #000;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .btn.light {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <nav class="backbar">
+    <a href="./">
+      <img src="assets/icon128.png" width="28" height="28" alt="" />
+      ← Back to Fox Timer
+    </a>
+    <div class="brand">
+      <img src="assets/icon128.png" width="28" height="28" alt="Fox Timer" />
+      <span>Use Cases</span>
+    </div>
+  </nav>
+
+  <div class="stack">
+    <header class="window">
+      <div class="titlebar">
+        <div class="traffic" aria-hidden="true"></div>
+        <span>Use Cases</span>
+      </div>
+      <div class="screen">
+        <div class="hero-brand">
+          <img src="assets/icon128.png" width="56" height="56" alt="Fox Timer logo" />
+          <div>
+            <h1>What should I pick?</h1>
+          </div>
+        </div>
+        <p class="blurb">
+          In the Fox Timer popup there’s a dropdown called
+          <strong>“What are you working on?”</strong>
+          Pick the one that matches your ATI page — then study without
+          babysitting the mouse.
+        </p>
+      </div>
+    </header>
+
+    <section class="window">
+      <div class="titlebar">
+        <div class="traffic" aria-hidden="true"></div>
+        <span>Best everyday use</span>
+      </div>
+      <div class="panel">
+        <h2>Write notes in real time</h2>
+        <p>
+          Open your ATI lesson, start Fox Timer, then write notes in another
+          window / notebook app. You don’t need to keep clicking the ATI page
+          just to stop it from timing out.
+        </p>
+        <div class="case highlight">
+          <h3>Sample session</h3>
+          <p>
+            You’re in an ATI Lesson. You set Fox Timer for 45 minutes.
+            Then you take notes in Google Docs / OneNote / paper while the
+            lesson stays awake in the background.
+          </p>
+          <p class="do">
+            <strong>Dropdown:</strong> ATI Lesson &nbsp;·&nbsp;
+            <strong>Goal:</strong> focus on learning, not clicking
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="window">
+      <div class="titlebar">
+        <div class="traffic" aria-hidden="true"></div>
+        <span>Dropdown samples</span>
+      </div>
+      <div class="panel">
+        <p>Each option in the dropdown is a different ATI situation:</p>
+
+        <div class="dropdown-mock">
+          ATI Lesson
+          <small>Profile in the dropdown</small>
+        </div>
+        <div class="case">
+          <h3>Use when</h3>
+          <p>You’re in a regular ATI module / lesson with pages and media.</p>
+          <p class="do">
+            <strong>Good for:</strong> note-taking, reading slowly, stepping away briefly,
+            letting the lesson advance while you focus.
+          </p>
+        </div>
+
+        <div class="dropdown-mock" style="margin-top:18px">
+          Video Case
+          <small>Profile in the dropdown</small>
+        </div>
+        <div class="case">
+          <h3>Use when</h3>
+          <p>You’re watching a Video Case and don’t want the page to fall asleep mid-video.</p>
+          <p class="do">
+            <strong>Good for:</strong> watching + jotting notes without clicking every few minutes.
+            When time is up, Fox Timer closes the page for you.
+          </p>
+        </div>
+
+        <div class="dropdown-mock" style="margin-top:18px">
+          Assessment
+          <small>Profile in the dropdown</small>
+        </div>
+        <div class="case">
+          <h3>Use when</h3>
+          <p>You’re in a quiz / assessment. You still answer every question yourself.</p>
+          <p class="do">
+            <strong>Good for:</strong> holding extra time on the last rationale screen while you
+            review notes — then Fox Timer Continues and finalizes.
+          </p>
+        </div>
+
+        <div class="dropdown-mock" style="margin-top:18px">
+          Popup Case (Beta)
+          <small>Profile in the dropdown</small>
+        </div>
+        <div class="case">
+          <h3>Use when</h3>
+          <p>You’re in a Real Life / SCORM popup simulation window.</p>
+          <p class="do">
+            <strong>Good for:</strong> keeping the popup awake while you think / write notes.
+            When time is up, it tries to click CLOSE. Still Beta — glance at the window at the end.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="window">
+      <div class="titlebar">
+        <div class="traffic" aria-hidden="true"></div>
+        <span>More sample use cases</span>
+      </div>
+      <div class="panel">
+        <div class="case">
+          <h3>Hands off the mouse</h3>
+          <p>
+            Start the timer, put the mouse down, and type notes with both hands.
+            Fox Timer keeps the session from dying because you stopped clicking.
+          </p>
+        </div>
+        <div class="case">
+          <h3>Study blocks</h3>
+          <p>
+            Set 25–50 minutes, work a focused block, then Pause or End.
+            Treat it like a study timer that also protects your ATI session.
+          </p>
+        </div>
+        <div class="case">
+          <h3>Review while it runs</h3>
+          <p>
+            Let an ATI Lesson keep moving (or stay awake) while you review flashcards
+            or rewrite notes in another tab.
+          </p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="install.html">Easy Install Guide</a>
+          <a class="btn light" href="./">← Back home</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
