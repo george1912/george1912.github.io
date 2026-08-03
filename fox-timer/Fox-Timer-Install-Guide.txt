@@ -10,26 +10,38 @@ Fox Timer is a small Chrome extension that helps keep ATI pages
 from timing out while you work.
 
 
-INSTALL (about 2 minutes)
--------------------------
-1. Unzip the Fox Timer folder somewhere easy to find
-   Example: Documents → FoxTimer
-   Keep this folder. Do not delete it later.
+WHICH DOWNLOAD?
+---------------
+• Mac / most people: fox-timer-extension.zip
+• Windows: fox-timer-windows.zip
 
-2. Open Google Chrome.
+Both open into a folder named FoxTimer (so Load unpacked is easy).
 
-3. In the address bar, type:
-   chrome://extensions
-   Then press Enter.
 
-4. Turn Developer mode ON (toggle in the top-right).
+INSTALL ON WINDOWS
+------------------
+1. Download fox-timer-windows.zip
+2. Right-click the ZIP → Extract All…
+3. Choose a place you’ll keep (Documents is fine)
+4. You should now have a folder named FoxTimer
+5. Open Google Chrome
+6. In the address bar type: chrome://extensions
+7. Turn Developer mode ON (top-right)
+8. Click Load unpacked
+9. Select the FoxTimer folder (it contains manifest.json)
 
-5. Click "Load unpacked".
+Do not delete the FoxTimer folder after installing.
 
-6. Select the unzipped Fox Timer folder
-   (the folder that contains manifest.json).
 
-7. Optional: click the puzzle piece in Chrome and pin Fox Timer.
+INSTALL ON MAC
+--------------
+1. Download fox-timer-extension.zip
+2. Double-click to unzip (you get a FoxTimer folder)
+3. Move FoxTimer somewhere permanent (Documents is fine)
+4. Open Google Chrome → chrome://extensions
+5. Turn Developer mode ON
+6. Click Load unpacked
+7. Select the FoxTimer folder
 
 
 HOW TO USE
@@ -68,4 +80,4 @@ TIPS
 • Try a short timer first (2–5 minutes)
 • Advanced options can be ignored
 
-Version 1.0.1
+Version 1.0.2
