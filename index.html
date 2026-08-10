@@ -1,60 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Under Construction</title>
-  <meta name="description" content="Thanks for finding this page. Unfortunately, under construction." />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" type="image/png" href="favicon-32x32.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APGAR Score · OB/GYN Living Notes</title>
+  <meta name="description" content="A visual nursing study module for newborn transition and APGAR scoring.">
+  <meta name="theme-color" content="#13243a">
+  <meta property="og:title" content="Newborn Assessment · APGAR, Decoded">
+  <meta property="og:description" content="A visual nursing study module from OB/GYN Living Notes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://george1912.github.io/">
+  <meta property="og:image" content="https://george1912.github.io/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="stage" aria-label="Under construction">
-    <div class="sky" aria-hidden="true">
-      <div class="rain" id="rain"></div>
-      <div class="ground"></div>
-      <div class="puddle"></div>
-      <div class="worker">
-        <div class="cone"></div>
-        <div class="sign">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="figure">
-          <div class="hat"></div>
-          <div class="head"></div>
-          <div class="body"></div>
-          <div class="leg left"></div>
-          <div class="leg right"></div>
-        </div>
+<main>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="OB/GYN Living Notes home"><span class="brand-mark" aria-hidden="true">+</span><span>OB/GYN // LIVING NOTES</span></a>
+    <div class="module-count" aria-label="Module 1"><span class="status-dot" aria-hidden="true"></span> MODULE 01</div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">NEWBORN ASSESSMENT · QUICK STUDY MODULE</p>
+      <h1>From womb<br>to world.</h1>
+      <p class="lede">In the first minutes after birth, the newborn makes a rapid transition to breathing, circulating, and regulating independently. Your job: notice the pattern, score the snapshot, and respond to the baby.</p>
+      <div class="hero-actions"><a class="primary-button" href="#apgar">LEARN APGAR ↓</a><a class="text-link" href="#practice">TEST YOURSELF</a></div>
+    </div>
+    <div class="monitor" aria-label="Visual timeline of the first 30 minutes after birth">
+      <div class="monitor-top"><span>TRANSITION MONITOR</span><span class="live-label">● LIVE</span></div>
+      <div class="pixel-baby" aria-hidden="true"><span class="pixel pixel-1"></span><span class="pixel pixel-2"></span><span class="pixel pixel-3"></span><span class="pixel pixel-4"></span><span class="pixel pixel-5"></span><span class="pixel pixel-6"></span><span class="pixel pixel-7"></span><span class="pixel pixel-8"></span><span class="pixel pixel-9"></span></div>
+      <div class="pulse-line" aria-hidden="true"><span></span></div>
+      <div class="monitor-reading">
+        <div><span class="reading-label">EARLY HEART RATE</span><strong>160–180</strong><small>bpm may occur</small></div>
+        <div><span class="reading-label">BY ~30 MIN</span><strong>100–160</strong><small>bpm, trending down</small></div>
       </div>
     </div>
+  </section>
 
-    <section class="copy">
-      <p class="eyebrow">404 vibes · still standing</p>
-      <h1>Thanks for finding this page.</h1>
-      <p class="lede">
-        Unfortunately, under construction.
-        The hard hats are on. The coffee is cold. Come back later.
-      </p>
-      <p class="fine">Nothing to see here yet. Not even a portfolio. Especially not an email developer portfolio.</p>
-    </section>
-  </main>
+  <section class="transition section-shell" aria-labelledby="transition-title">
+    <div class="section-heading"><p class="section-number">01 / THE FIRST 30 MINUTES</p><h2 id="transition-title">First period of reactivity</h2><p>The newborn is typically alert and active at first. Heart rate may briefly reach 160–180 bpm, then gradually settles as activity decreases.</p></div>
+    <div class="timeline" role="img" aria-label="Timeline from birth through 30 minutes showing assessment points and decreasing activity">
+      <div class="timeline-track" aria-hidden="true"></div>
+      <article class="time-card active"><span class="time">0</span><h3>BIRTH</h3><p>Warm, dry, stimulate. Rapidly assess breathing, tone, and heart rate.</p></article>
+      <article class="time-card"><span class="time">1</span><h3>MINUTE</h3><p>Record the first APGAR snapshot. Do not wait for it to begin needed care.</p></article>
+      <article class="time-card"><span class="time">5</span><h3>MINUTES</h3><p>Score again. The change helps describe the response to transition or support.</p></article>
+      <article class="time-card settle"><span class="time">30</span><h3>MINUTES</h3><p>Heart rate and motor activity generally settle toward baseline.</p></article>
+    </div>
+    <aside class="correction-note"><span class="note-icon" aria-hidden="true">!</span><div><strong>STUDY NOTE</strong><p>Use <b>160–180 bpm</b> for the early peak—not 280 bpm. A rate of 280 is not an expected newborn transition finding and needs urgent evaluation.</p></div></aside>
+  </section>
 
-  <script>
-    const rain = document.getElementById('rain')
-    const drops = 42
-    for (let i = 0; i < drops; i += 1) {
-      const drop = document.createElement('i')
-      drop.style.left = `${Math.random() * 100}%`
-      drop.style.animationDuration = `${0.7 + Math.random() * 0.9}s`
-      drop.style.animationDelay = `${Math.random() * 2}s`
-      drop.style.opacity = String(0.35 + Math.random() * 0.55)
-      drop.style.height = `${10 + Math.random() * 14}px`
-      rain.appendChild(drop)
-    }
-  </script>
+  <section class="apgar-section" id="apgar" aria-labelledby="apgar-title"><div class="section-shell">
+    <div class="apgar-intro"><div class="section-heading inverse"><p class="section-number">02 / THE RAPID STATUS CHECK</p><h2 id="apgar-title">APGAR, decoded.</h2><p>Five observations. Each gets <b>0, 1, or 2 points</b>. Add them for a total out of 10.</p></div><div class="minute-chip"><span>CHECK AT</span><strong>1 + 5</strong><small>MINUTES</small></div></div>
+    <div class="score-key" aria-label="Score color key"><span><i class="key-zero"></i> 0 · ABSENT / POOR</span><span><i class="key-one"></i> 1 · PARTIAL</span><span><i class="key-two"></i> 2 · STRONG / NORMAL</span></div>
+    <div class="apgar-grid" role="table" aria-label="APGAR scoring table">
+      <div class="grid-header" role="row"><span role="columnheader">SIGN</span><span role="columnheader">0 POINTS</span><span role="columnheader">1 POINT</span><span role="columnheader">2 POINTS</span></div>
+      <article class="score-row" role="row"><div class="sign-cell" role="rowheader"><span class="letter-tile">A</span><span><strong>Appearance</strong><small>color</small></span></div><div class="score-cell score-zero" role="cell"><span class="mobile-score">0</span>Blue or pale all over</div><div class="score-cell score-one" role="cell"><span class="mobile-score">1</span>Pink body; blue hands + feet</div><div class="score-cell score-two" role="cell"><span class="mobile-score">2</span>Pink all over</div></article>
+      <article class="score-row" role="row"><div class="sign-cell" role="rowheader"><span class="letter-tile">P</span><span><strong>Pulse</strong><small>heart rate</small></span></div><div class="score-cell score-zero" role="cell"><span class="mobile-score">0</span>Absent</div><div class="score-cell score-one" role="cell"><span class="mobile-score">1</span>Below 100 bpm</div><div class="score-cell score-two" role="cell"><span class="mobile-score">2</span>100 bpm or more</div></article>
+      <article class="score-row" role="row"><div class="sign-cell" role="rowheader"><span class="letter-tile">G</span><span><strong>Grimace</strong><small>reflex irritability</small></span></div><div class="score-cell score-zero" role="cell"><span class="mobile-score">0</span>No response</div><div class="score-cell score-one" role="cell"><span class="mobile-score">1</span>Grimace</div><div class="score-cell score-two" role="cell"><span class="mobile-score">2</span>Coughs, sneezes, cries, or pulls away</div></article>
+      <article class="score-row" role="row"><div class="sign-cell" role="rowheader"><span class="letter-tile">A</span><span><strong>Activity</strong><small>muscle tone</small></span></div><div class="score-cell score-zero" role="cell"><span class="mobile-score">0</span>Limp</div><div class="score-cell score-one" role="cell"><span class="mobile-score">1</span>Some flexion</div><div class="score-cell score-two" role="cell"><span class="mobile-score">2</span>Active motion; well-flexed</div></article>
+      <article class="score-row" role="row"><div class="sign-cell" role="rowheader"><span class="letter-tile">R</span><span><strong>Respiration</strong><small>breathing effort</small></span></div><div class="score-cell score-zero" role="cell"><span class="mobile-score">0</span>Absent</div><div class="score-cell score-one" role="cell"><span class="mobile-score">1</span>Slow or irregular; weak cry</div><div class="score-cell score-two" role="cell"><span class="mobile-score">2</span>Good breathing; strong cry</div></article>
+    </div>
+    <div class="memory-line" aria-label="APGAR memory cue"><div><span>A</span><small>Appearance</small></div><div><span>P</span><small>Pulse</small></div><div><span>G</span><small>Grimace</small></div><div><span>A</span><small>Activity</small></div><div><span>R</span><small>Respiration</small></div></div>
+  </div></section>
+
+  <section class="interpret section-shell" aria-labelledby="interpret-title">
+    <div class="section-heading"><p class="section-number">03 / READ THE TOTAL</p><h2 id="interpret-title">What does the score mean?</h2><p>These bands describe the <b>5-minute score</b> in term and late-preterm newborns. The trend from 1 to 5 minutes matters.</p></div>
+    <div class="band-grid"><article class="band-card good"><strong>7–10</strong><span>Reassuring</span></article><article class="band-card watch"><strong>4–6</strong><span>Moderately abnormal</span></article><article class="band-card urgent"><strong>0–3</strong><span>Low</span></article></div>
+    <div class="clinical-anchor"><div class="anchor-title"><span aria-hidden="true">⚑</span><strong>CLINICAL ANCHOR</strong></div><p>APGAR <b>describes status and response</b>. It does not decide whether to start resuscitation, and it does not diagnose asphyxia or predict an individual child’s neurologic outcome.</p><p class="repeat-rule">IF THE 5-MINUTE SCORE IS &lt; 7 → REPEAT EVERY 5 MINUTES, UP TO 20 MINUTES.</p></div>
+  </section>
+
+  <section class="practice-section" id="practice" aria-labelledby="practice-title"><div class="section-shell practice-grid">
+    <div class="section-heading inverse"><p class="section-number">04 / LOCK IT IN</p><h2 id="practice-title">Three quick checks.</h2><p>Open each card after you answer it in your head.</p></div>
+    <div class="quiz-list"><details><summary><span>01</span>Pink trunk, blue hands and feet: appearance score?</summary><p><b>1 point.</b> This is acrocyanosis—not blue or pale all over.</p></details><details><summary><span>02</span>Heart rate 96 bpm: pulse score?</summary><p><b>1 point.</b> Below 100 bpm earns 1; 100 or more earns 2.</p></details><details><summary><span>03</span>APGAR is 6 at 5 minutes: what next?</summary><p><b>Repeat the score every 5 minutes</b>, up to 20 minutes, while care continues based on the newborn’s condition.</p></details></div>
+  </div></section>
+
+  <section class="sources section-shell" aria-labelledby="sources-title">
+    <div><p class="section-number">KEEP LEARNING</p><h2 id="sources-title">Trusted next stops</h2></div>
+    <div class="source-links"><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score" target="_blank" rel="noreferrer"><span>ACOG + AAP</span><strong>The APGAR Score ↗</strong></a><a href="https://med.stanford.edu/stanfordmedicine25/the25/newborn-rapid-assessment.html" target="_blank" rel="noreferrer"><span>STANFORD MEDICINE 25 · VIDEO</span><strong>Rapid Newborn Assessment ↗</strong></a></div>
+  </section>
+
+  <footer><div class="footer-brand">OB/GYN // LIVING NOTES</div><p>Built for active study. Always follow your course materials, facility policy, and current clinical guidance.</p><span>MODULE 01 · NEWBORN ASSESSMENT</span></footer>
+</main>
 </body>
 </html>
