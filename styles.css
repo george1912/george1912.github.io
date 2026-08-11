@@ -715,6 +715,69 @@ h1 { max-width: 680px; margin: 0; font-size: clamp(3rem, 5.7vw, 5.2rem); line-he
 .labor-pain-note strong { font-size: .66rem; letter-spacing: .05em; }
 .labor-pain-note p { margin: 6px 0 0; font-size: .79rem; line-height: 1.47; }
 
+.postpartum-section { padding: 62px 0 66px; background: #e8eadf; border-top: var(--border); }
+.postpartum-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.postpartum-chip { background: #596456; }
+.bubble-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 30px; border: var(--border); }
+.bubble-grid article { min-height: 132px; padding: 15px; background: #f7f4e9; border-right: var(--border); border-bottom: var(--border); }
+.bubble-grid article:nth-child(4n) { border-right: 0; }
+.bubble-grid article:nth-child(n+5) { border-bottom: 0; }
+.bubble-grid span { width: 31px; height: 31px; display: grid; place-items: center; background: #cfd6bd; border: var(--border); font: 900 .84rem/1 "Courier New", monospace; }
+.bubble-grid strong { display: block; margin-top: 12px; font-size: .77rem; }
+.bubble-grid p { margin: 5px 0 0; font-size: .74rem; line-height: 1.4; }
+.bubble-note { margin: 9px 0 0; padding: 10px 13px; background: #ddd9c4; border: var(--border); font-size: .74rem; }
+.postpartum-clock { margin-top: 26px; padding: 17px; background: #f4f0e5; border: var(--border); }
+.fundus-track > span, .lochia-track span, .hemorrhage-panel span, .postpartum-care-grid span, .mood-grid span, .continuity-strip span { font: 900 .61rem/1.2 "Courier New", monospace; letter-spacing: .06em; }
+.fundus-track h3 { margin: 9px 0 8px; font-size: .98rem; }
+.fundus-track p { margin: 0; font-size: .78rem; line-height: 1.47; }
+.lochia-track { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 15px; border: var(--border); }
+.lochia-track article { padding: 14px; background: #ebe3d8; border-right: var(--border); }
+.lochia-track article:nth-child(2) { background: #e6ddd1; }
+.lochia-track article:last-child { background: #e2e5d5; border-right: 0; }
+.lochia-track strong { display: block; margin-top: 10px; font-size: .79rem; }
+.lochia-track p { margin: 4px 0 0; font-size: .73rem; }
+.trend-cue { margin: 12px 0 0; font: 900 .62rem/1.4 "Courier New", monospace; letter-spacing: .04em; }
+.hemorrhage-panel { margin-top: 28px; padding: 18px; color: #f4f1e6; background: #505a4d; border: var(--border); }
+.hemorrhage-heading { display: grid; grid-template-columns: 1fr .9fr; gap: 30px; align-items: end; }
+.hemorrhage-heading h3 { margin: 0; color: #f4f1e6; font-size: 1.05rem; }
+.hemorrhage-heading > p { margin: 0; font-size: .77rem; line-height: 1.45; }
+.four-ts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 16px; border: 1px solid #879080; }
+.four-ts article { padding: 14px; color: var(--ink); background: #f4f0e5; border-right: 1px solid #879080; }
+.four-ts article:last-child { border-right: 0; }
+.four-ts span { width: 27px; height: 27px; display: grid; place-items: center; color: var(--ink); background: #d7d3aa; border: var(--border); }
+.four-ts strong { display: block; margin-top: 10px; font-size: .77rem; }
+.four-ts p { margin: 4px 0 0; font-size: .72rem; line-height: 1.4; }
+.mass-response { display: grid; grid-template-columns: .3fr 1.7fr; gap: 18px; align-items: center; margin-top: 10px; padding: 13px; color: var(--ink); background: #ddd1b8; border: 1px solid #879080; }
+.mass-response p { margin: 0; font-size: .75rem; line-height: 1.44; }
+.uterotonic-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 10px; }
+.uterotonic-strip article { padding: 11px; color: var(--ink); background: #e5e6d9; border: 1px solid #879080; }
+.uterotonic-strip strong { font-size: .62rem; }
+.uterotonic-strip p { margin: 4px 0 0; font-size: .7rem; line-height: 1.35; }
+.postpartum-care-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; margin-top: 28px; }
+.postpartum-care-grid article { padding: 16px; background: #f7f4e9; border: var(--border); }
+.postpartum-care-grid h3 { margin: 13px 0 8px; font-size: .86rem; }
+.postpartum-care-grid p { margin: 0; font-size: .75rem; line-height: 1.45; }
+.mood-board { margin-top: 28px; }
+.mood-heading h3 { margin: 0; font-size: 1.05rem; }
+.mood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 14px; }
+.mood-grid article { padding: 16px; background: #f7f4e9; border: var(--border); }
+.mood-grid article:nth-child(2) { background: #e5e2d1; }
+.mood-grid .psychosis-card { background: #dfd0c5; }
+.mood-grid strong { display: block; margin-top: 13px; font-size: .77rem; }
+.mood-grid p { margin: 6px 0 0; font-size: .75rem; line-height: 1.45; }
+.warning-panel { margin-top: 28px; padding: 18px; color: #f5f2e8; background: #66574f; border: var(--border); }
+.warning-panel h3 { margin: 0; color: #eadba8; font-size: 1.05rem; }
+.warning-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 15px; }
+.warning-grid p { margin: 0; padding: 11px; background: #f3eee2; color: var(--ink); border: 1px solid #978d7f; font-size: .73rem; line-height: 1.4; }
+.warning-close { margin: 12px 0 0; font: 900 .64rem/1.4 "Courier New", monospace; letter-spacing: .04em; }
+.continuity-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 28px; }
+.continuity-strip article { padding: 16px; background: #f7f4e9; border: var(--border); }
+.continuity-strip strong { display: block; margin-top: 12px; font-size: .77rem; }
+.continuity-strip p { margin: 6px 0 0; font-size: .74rem; line-height: 1.45; }
+.postpartum-note { margin-top: 14px; padding: 15px 17px; background: #d2d9bd; border: var(--border); }
+.postpartum-note strong { font-size: .66rem; letter-spacing: .05em; }
+.postpartum-note p { margin: 6px 0 0; font-size: .79rem; line-height: 1.47; }
+
 .sources { padding: 100px 0; display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; border-bottom: var(--border); }
 .sources h2 { font-size: clamp(1.8rem, 3.3vw, 2.8rem); }
 .source-links { display: grid; gap: 16px; }
@@ -741,7 +804,7 @@ h1 { font-size: clamp(2.55rem, 4.6vw, 4.25rem); line-height: .98; }
 .monitor-reading > div { padding: 10px; }
 .monitor-reading strong { font-size: clamp(1.35rem, 2.4vw, 1.9rem); }
 
-.transition, .interpret, .apgar-section, .physiology-hero, .system-section, .gi-section, .heat-section, .blood-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section, .labor-pain-section, .sources { padding-top: 62px; padding-bottom: 66px; }
+.transition, .interpret, .apgar-section, .physiology-hero, .system-section, .gi-section, .heat-section, .blood-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section, .labor-pain-section, .postpartum-section, .sources { padding-top: 62px; padding-bottom: 66px; }
 .physiology-hero, .head-to-toe-section, .daily-care-section, .home-care-section { background: #e9ecdf; }
 .heat-section, .baseline-section, .movement-section, .gestation-section { background: #f1efe4; }
 .memory-notes { padding: 50px 0 54px; }
@@ -843,13 +906,20 @@ footer { min-height: 96px; gap: 24px; }
   .feed-memory article:nth-child(-n+2), .storage-grid article:nth-child(-n+2), .mix-steps article:nth-child(-n+2) { border-bottom: var(--border); }
   .milk-facts, .feeding-checks { grid-template-columns: 1fr; }
   .formula-heading { grid-template-columns: 1fr; gap: 14px; }
-  .contraception-intro, .sti-intro, .labor-pain-intro { align-items: flex-start; flex-direction: column; }
+  .contraception-intro, .sti-intro, .labor-pain-intro, .postpartum-intro { align-items: flex-start; flex-direction: column; }
   .sti-patterns, .sti-alerts { grid-template-columns: 1fr; }
   .treatment-anchors { grid-template-columns: 1fr 1fr; }
   .move-comfort-grid, .epidural-steps { grid-template-columns: 1fr 1fr; }
   .epidural-steps article:nth-child(-n+2) { border-bottom: var(--border); }
   .epidural-steps article:nth-child(2) { border-right: 0; }
   .pain-safety-grid { grid-template-columns: 1fr; }
+  .bubble-grid, .four-ts, .postpartum-care-grid { grid-template-columns: 1fr 1fr; }
+  .bubble-grid article:nth-child(n), .four-ts article:nth-child(n) { border-right: var(--border); border-bottom: var(--border); }
+  .bubble-grid article:nth-child(2n), .four-ts article:nth-child(2n) { border-right: 0; }
+  .bubble-grid article:nth-last-child(-n+2), .four-ts article:nth-last-child(-n+2) { border-bottom: 0; }
+  .hemorrhage-heading { grid-template-columns: 1fr; gap: 14px; }
+  .uterotonic-strip { grid-template-columns: 1fr 1fr; }
+  .mood-grid, .warning-grid { grid-template-columns: 1fr; }
   .pick-memory { grid-template-columns: 1fr 1fr; }
   .pick-memory article:nth-child(2) { border-right: 0; }
   .pick-memory article:nth-child(-n+2) { border-bottom: var(--border); }
@@ -878,7 +948,7 @@ footer { min-height: 96px; gap: 24px; }
   .score-zero .mobile-score { background: var(--coral); } .score-one .mobile-score { background: var(--yellow); } .score-two .mobile-score { background: var(--mint); }
   .memory-line small { display: none; } .clinical-anchor { grid-template-columns: 1fr; }
   .practice-section { padding: 54px 0; } .quiz-list details p { padding-left: 20px; }
-  .physiology-hero, .system-section, .heat-section, .blood-section, .gi-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section, .labor-pain-section { padding: 54px 0; }
+  .physiology-hero, .system-section, .heat-section, .blood-section, .gi-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section, .labor-pain-section, .postpartum-section { padding: 54px 0; }
   .system-heading { gap: 15px; }
   .system-number { flex-basis: 44px; width: 44px; height: 44px; }
   .system-heading h2 { font-size: clamp(2rem, 9vw, 3rem); }
@@ -942,6 +1012,9 @@ footer { min-height: 96px; gap: 24px; }
   .stop-memory article:last-child { border-bottom: 0; }
   .plan-memory article, .regional-strip article, .epidural-steps article { border-right: 0; border-bottom: var(--border); }
   .plan-memory article:last-child, .regional-strip article:last-child, .epidural-steps article:last-child { border-bottom: 0; }
+  .bubble-grid, .lochia-track, .four-ts, .uterotonic-strip, .postpartum-care-grid, .mood-grid, .warning-grid, .continuity-strip, .mass-response { grid-template-columns: 1fr; }
+  .bubble-grid article:nth-child(n), .lochia-track article, .four-ts article:nth-child(n) { min-height: 0; border-right: 0; border-bottom: var(--border); }
+  .bubble-grid article:last-child, .lochia-track article:last-child, .four-ts article:last-child { border-bottom: 0; }
   .pick-memory article, .method-ladder article, .method-ladder article:nth-child(n) { border-right: 0; border-bottom: var(--border); }
   .pick-memory article:last-child, .method-ladder article:last-child { border-bottom: 0; }
   .first-care-strip { align-items: stretch; flex-direction: column; }
