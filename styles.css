@@ -636,6 +636,37 @@ h1 { max-width: 680px; margin: 0; font-size: clamp(3rem, 5.7vw, 5.2rem); line-he
 .choice-note strong { font-size: .66rem; letter-spacing: .05em; }
 .choice-note p { margin: 6px 0 0; font-size: .8rem; line-height: 1.48; }
 
+.sti-section { padding: 62px 0 66px; background: #e7eadf; border-top: var(--border); }
+.sti-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.sti-chip { background: #59624f; }
+.stop-memory { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 30px; border: var(--border); }
+.stop-memory article { padding: 16px; background: var(--white); border-right: var(--border); }
+.stop-memory article:last-child { border-right: 0; }
+.stop-memory span { width: 31px; height: 31px; display: grid; place-items: center; background: #c8d0af; border: var(--border); font: 900 .84rem/1 "Courier New", monospace; }
+.stop-memory strong { display: block; margin-top: 14px; font-size: .76rem; }
+.stop-memory p { margin: 5px 0 0; font-size: .78rem; line-height: 1.42; }
+.sti-patterns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+.sti-patterns article, .treatment-anchors article, .sti-alerts article { padding: 17px; background: var(--white); border: var(--border); }
+.sti-patterns span, .treatment-anchors span, .sti-alerts span, .pregnancy-screen span { font: 900 .61rem/1.2 "Courier New", monospace; letter-spacing: .06em; }
+.sti-patterns h3, .sti-alerts h3 { margin: 15px 0 10px; font-size: .91rem; }
+.sti-patterns ul { margin: 0; padding-left: 17px; font-size: .78rem; line-height: 1.47; }
+.sti-patterns li + li { margin-top: 6px; }
+.sti-patterns em { color: #56604e; font-style: normal; font-weight: 800; }
+.pregnancy-screen { display: grid; grid-template-columns: .78fr 1.22fr; gap: 22px; align-items: center; margin-top: 14px; padding: 17px; color: #f4f1e6; background: #4f594c; border: var(--border); }
+.pregnancy-screen strong { display: block; margin-top: 7px; color: #d7dda8; font-size: .93rem; }
+.pregnancy-screen p { margin: 0; font-size: .8rem; line-height: 1.45; }
+.treatment-anchors { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+.treatment-anchors span { color: #657052; }
+.treatment-anchors strong { display: block; margin-top: 12px; font-size: .78rem; }
+.treatment-anchors p { margin: 6px 0 0; font-size: .75rem; line-height: 1.43; }
+.sti-alerts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+.sti-alerts article:first-child { background: #efe8d7; }
+.sti-alerts article:nth-child(2) { background: #e8d8cf; }
+.sti-alerts p { margin: 0; font-size: .78rem; line-height: 1.47; }
+.sti-note { margin-top: 14px; padding: 15px 17px; background: #d4d9ba; border: var(--border); }
+.sti-note strong { font-size: .66rem; letter-spacing: .05em; }
+.sti-note p { margin: 6px 0 0; font-size: .79rem; line-height: 1.47; }
+
 .sources { padding: 100px 0; display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; border-bottom: var(--border); }
 .sources h2 { font-size: clamp(1.8rem, 3.3vw, 2.8rem); }
 .source-links { display: grid; gap: 16px; }
@@ -662,7 +693,7 @@ h1 { font-size: clamp(2.55rem, 4.6vw, 4.25rem); line-height: .98; }
 .monitor-reading > div { padding: 10px; }
 .monitor-reading strong { font-size: clamp(1.35rem, 2.4vw, 1.9rem); }
 
-.transition, .interpret, .apgar-section, .physiology-hero, .system-section, .gi-section, .heat-section, .blood-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sources { padding-top: 62px; padding-bottom: 66px; }
+.transition, .interpret, .apgar-section, .physiology-hero, .system-section, .gi-section, .heat-section, .blood-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section, .sources { padding-top: 62px; padding-bottom: 66px; }
 .physiology-hero, .head-to-toe-section, .daily-care-section, .home-care-section { background: #e9ecdf; }
 .heat-section, .baseline-section, .movement-section, .gestation-section { background: #f1efe4; }
 .memory-notes { padding: 50px 0 54px; }
@@ -764,7 +795,9 @@ footer { min-height: 96px; gap: 24px; }
   .feed-memory article:nth-child(-n+2), .storage-grid article:nth-child(-n+2), .mix-steps article:nth-child(-n+2) { border-bottom: var(--border); }
   .milk-facts, .feeding-checks { grid-template-columns: 1fr; }
   .formula-heading { grid-template-columns: 1fr; gap: 14px; }
-  .contraception-intro { align-items: flex-start; flex-direction: column; }
+  .contraception-intro, .sti-intro { align-items: flex-start; flex-direction: column; }
+  .sti-patterns, .sti-alerts { grid-template-columns: 1fr; }
+  .treatment-anchors { grid-template-columns: 1fr 1fr; }
   .pick-memory { grid-template-columns: 1fr 1fr; }
   .pick-memory article:nth-child(2) { border-right: 0; }
   .pick-memory article:nth-child(-n+2) { border-bottom: var(--border); }
@@ -793,7 +826,7 @@ footer { min-height: 96px; gap: 24px; }
   .score-zero .mobile-score { background: var(--coral); } .score-one .mobile-score { background: var(--yellow); } .score-two .mobile-score { background: var(--mint); }
   .memory-line small { display: none; } .clinical-anchor { grid-template-columns: 1fr; }
   .practice-section { padding: 54px 0; } .quiz-list details p { padding-left: 20px; }
-  .physiology-hero, .system-section, .heat-section, .blood-section, .gi-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section { padding: 54px 0; }
+  .physiology-hero, .system-section, .heat-section, .blood-section, .gi-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section { padding: 54px 0; }
   .system-heading { gap: 15px; }
   .system-number { flex-basis: 44px; width: 44px; height: 44px; }
   .system-heading h2 { font-size: clamp(2rem, 9vw, 3rem); }
@@ -852,7 +885,9 @@ footer { min-height: 96px; gap: 24px; }
   .feed-memory article, .storage-grid article, .mix-steps article, .formula-clock article { border-right: 0; border-bottom: var(--border); }
   .feed-memory article:last-child, .storage-grid article:last-child, .mix-steps article:last-child { border-bottom: 0; }
   .formula-clock > span { border-bottom: 0; }
-  .pick-memory, .method-ladder, .contraception-grid, .ec-panel { grid-template-columns: 1fr; }
+  .pick-memory, .method-ladder, .contraception-grid, .ec-panel, .stop-memory, .pregnancy-screen, .treatment-anchors { grid-template-columns: 1fr; }
+  .stop-memory article { border-right: 0; border-bottom: var(--border); }
+  .stop-memory article:last-child { border-bottom: 0; }
   .pick-memory article, .method-ladder article, .method-ladder article:nth-child(n) { border-right: 0; border-bottom: var(--border); }
   .pick-memory article:last-child, .method-ladder article:last-child { border-bottom: 0; }
   .first-care-strip { align-items: stretch; flex-direction: column; }
