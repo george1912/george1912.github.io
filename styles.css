@@ -317,6 +317,66 @@ h1 { max-width: 680px; margin: 0; font-size: clamp(3.4rem, 6.7vw, 6.3rem); line-
 .mixup-note > div { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
 .mixup-note p { margin: 0; line-height: 1.6; }
 
+.head-to-toe-section { padding: 110px 0; background: #e9edeb; border-bottom: var(--border); }
+.head-to-toe-intro { display: grid; grid-template-columns: 1fr .85fr; align-items: end; gap: 70px; }
+.body-map-memory { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+.body-map-memory span { padding: 11px 13px; background: var(--white); border: var(--border); font: 900 .64rem/1 "Courier New", monospace; letter-spacing: .06em; }
+.body-map-memory i { color: var(--mint-deep); font: normal 900 .8rem/1 "Courier New", monospace; }
+.exam-block { margin-top: 100px; padding-top: 66px; border-top: var(--border); }
+.exam-heading { display: flex; align-items: flex-start; gap: 20px; }
+.exam-heading > span { flex: 0 0 46px; width: 46px; height: 46px; display: grid; place-items: center; background: var(--sky); border: var(--border); font: 900 .75rem/1 "Courier New", monospace; }
+.exam-heading .section-number { margin-bottom: 8px; }
+.exam-heading h3 { max-width: 920px; margin: 0; font: 900 clamp(2rem, 4vw, 3.6rem)/1 "Courier New", monospace; letter-spacing: -.05em; text-transform: uppercase; }
+.face-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 46px; }
+.face-grid article { min-height: 240px; padding: 26px; background: var(--white); border: var(--border); }
+.face-grid article > span, .scalp-compare article > span, .skin-library article > span, .trunk-grid article > span { color: var(--mint-deep); font: 900 .64rem/1 "Courier New", monospace; letter-spacing: .07em; }
+.face-grid strong { display: block; margin-top: 40px; font-size: 1rem; }
+.face-grid p { margin: 12px 0 0; line-height: 1.65; }
+.mouth-note { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.mouth-note > div { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; padding: 22px; background: #f0ece2; border: var(--border); }
+.mouth-note span { width: 42px; height: 42px; display: grid; place-items: center; background: var(--yellow); font: 900 .7rem/1 "Courier New", monospace; }
+.mouth-note p { margin: 0; line-height: 1.6; }
+.head-measures { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 46px; }
+.head-measures article { padding: 25px; background: var(--white); border: var(--border); }
+.head-measures span, .head-measures strong { display: block; }
+.head-measures span { font: 900 .62rem/1 "Courier New", monospace; letter-spacing: .07em; }
+.head-measures strong { margin-top: 28px; font-size: clamp(1.6rem, 3.2vw, 2.7rem); letter-spacing: -.05em; }
+.head-measures p { margin: 10px 0 0; line-height: 1.55; }
+.fontanel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+.fontanel-grid article { display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: center; padding: 26px; background: #e5ebe8; border: var(--border); }
+.fontanel-shape { width: 52px; height: 52px; display: block; background: var(--coral); border: var(--border); }
+.fontanel-shape.diamond { transform: rotate(45deg) scale(.72); }
+.fontanel-shape.triangle { clip-path: polygon(50% 5%, 95% 92%, 5% 92%); }
+.fontanel-grid strong { font-size: .9rem; }
+.fontanel-grid p { margin: 8px 0 0; line-height: 1.55; }
+.fontanel-note { margin-top: 14px; padding: 22px 26px; background: #eee8d8; border: var(--border); }
+.fontanel-note strong { font-size: .7rem; letter-spacing: .07em; }
+.fontanel-note p { margin: 7px 0 0; line-height: 1.6; }
+.scalp-compare { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 42px; }
+.scalp-compare article { min-height: 245px; padding: 22px; background: var(--white); border: var(--border); }
+.scalp-compare strong { display: block; margin-top: 38px; font-size: .9rem; line-height: 1.4; }
+.scalp-compare p { margin: 11px 0 0; font-size: .88rem; line-height: 1.58; }
+.scalp-compare .urgent-scalp { background: #eadfdb; }
+.skin-library { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 46px; }
+.skin-library article { min-height: 205px; padding: 24px; background: var(--white); border: var(--border); }
+.skin-library strong { display: block; margin-top: 28px; font-size: .95rem; }
+.skin-library p { margin: 10px 0 0; font-size: .9rem; line-height: 1.62; }
+.trunk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 46px; }
+.trunk-grid article { min-height: 265px; padding: 25px; background: var(--white); border: var(--border); }
+.trunk-grid strong { display: block; margin-top: 42px; font-size: 1.05rem; }
+.trunk-grid p { margin: 11px 0 0; line-height: 1.62; }
+.trunk-grid .cord-card { background: #e5ebe8; }
+.cord-card > strong { font-size: 2.7rem; letter-spacing: .12em; }
+.move-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 46px; }
+.move-grid article { min-height: 230px; padding: 22px; background: var(--white); border: var(--border); }
+.move-grid article > span { width: 42px; height: 42px; display: grid; place-items: center; background: var(--sky); font: 900 .95rem/1 "Courier New", monospace; }
+.move-grid strong { display: block; margin-top: 38px; font-size: .92rem; }
+.move-grid p { margin: 10px 0 0; font-size: .9rem; line-height: 1.6; }
+.crease-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.crease-notes article { padding: 24px; background: #f0ece2; border: var(--border); }
+.crease-notes strong { font-size: .9rem; }
+.crease-notes p { margin: 10px 0 0; line-height: 1.62; }
+
 .sources { padding: 100px 0; display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; border-bottom: var(--border); }
 .sources h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .source-links { display: grid; gap: 16px; }
@@ -344,6 +404,10 @@ footer p { margin: 0; color: #4d5968; } footer > span { font: 800 .62rem/1.4 "Co
   .memory-card-grid.five-up { grid-template-columns: repeat(2, 1fr); }
   .baseline-intro { grid-template-columns: 1fr; gap: 48px; }
   .measurement-grid { grid-template-columns: 1fr; }
+  .head-to-toe-intro { grid-template-columns: 1fr; gap: 44px; }
+  .body-map-memory { justify-content: flex-start; }
+  .scalp-compare, .move-grid { grid-template-columns: 1fr 1fr; }
+  .trunk-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -363,7 +427,7 @@ footer p { margin: 0; color: #4d5968; } footer > span { font: 800 .62rem/1.4 "Co
   .score-zero .mobile-score { background: var(--coral); } .score-one .mobile-score { background: var(--yellow); } .score-two .mobile-score { background: var(--mint); }
   .memory-line small { display: none; } .clinical-anchor { grid-template-columns: 1fr; }
   .practice-section { padding: 80px 0; } .quiz-list details p { padding-left: 24px; }
-  .physiology-hero, .system-section, .heat-section, .blood-section, .gi-section, .physiology-practice, .baseline-section { padding: 82px 0; }
+  .physiology-hero, .system-section, .heat-section, .blood-section, .gi-section, .physiology-practice, .baseline-section, .head-to-toe-section { padding: 82px 0; }
   .system-heading { gap: 15px; }
   .system-number { flex-basis: 44px; width: 44px; height: 44px; }
   .system-heading h2 { font-size: clamp(2.2rem, 11vw, 3.7rem); }
@@ -397,6 +461,13 @@ footer p { margin: 0; color: #4d5968; } footer > span { font: 800 .62rem/1.4 "Co
   .vitals-notebook article { grid-template-columns: 64px 1fr; }
   .vitals-notebook article > div { padding: 20px; }
   .mixup-note > div { grid-template-columns: 1fr; }
+  .exam-block { margin-top: 76px; padding-top: 48px; }
+  .exam-heading { gap: 14px; }
+  .exam-heading > span { flex-basis: 40px; width: 40px; height: 40px; }
+  .face-grid, .mouth-note, .head-measures, .fontanel-grid, .skin-library, .scalp-compare, .move-grid, .crease-notes { grid-template-columns: 1fr; }
+  .face-grid article, .scalp-compare article, .skin-library article, .trunk-grid article, .move-grid article { min-height: 0; }
+  .fontanel-grid article { grid-template-columns: 56px 1fr; gap: 16px; }
+  .body-map-memory i { transform: rotate(90deg); }
   footer { padding: 42px 0; grid-template-columns: 1fr; gap: 18px; } footer > span { text-align: left; }
 }
 
