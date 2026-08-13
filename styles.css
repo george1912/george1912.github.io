@@ -1791,3 +1791,145 @@ main :where(
   .monitor,
   .stop-drop > div { forced-color-adjust: auto; }
 }
+
+/* Pocket study deck — a tactile, focused review toy inspired by the pediatrics guide. */
+.study-deck {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--a11y-text);
+  background: #eef3f8;
+  border: 2px solid var(--a11y-text);
+  box-shadow: 8px 8px 0 #c9d1da;
+}
+.study-deck__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 13px;
+  color: #fff;
+  background: var(--bau-blue);
+  border-bottom: 2px solid var(--a11y-text);
+  font: 800 .76rem/1.2 "Courier New", monospace;
+  letter-spacing: .05em;
+}
+.study-deck__bar span { color: #fff !important; }
+.study-deck__screen { padding: 16px; background: #fff8d9; }
+.study-deck__screen > p {
+  margin: 0 0 6px;
+  color: #3c4b59 !important;
+  font: 800 .78rem/1.2 "Courier New", monospace;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.study-deck__screen h2 {
+  min-height: 2.25em;
+  margin: 0;
+  font: 900 clamp(1.3rem, 2.7vw, 1.85rem)/1.12 "Courier New", monospace;
+  letter-spacing: -.035em;
+}
+.study-card {
+  width: 100%;
+  min-height: 118px;
+  margin-top: 15px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  color: var(--a11y-text);
+  background: #fff;
+  border: 2px solid var(--a11y-text);
+  border-left: 9px solid var(--bau-red);
+  box-shadow: 4px 4px 0 #b9c3cd;
+  text-align: left;
+  cursor: pointer;
+}
+.study-card:hover { background: #f7fafc; }
+.study-card:active,
+.study-card.is-revealed { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #b9c3cd; }
+.study-card.is-revealed { border-left-color: var(--bau-blue); background: #fff; }
+.study-card span { color: #714f00 !important; font: 900 .76rem/1.2 "Courier New", monospace; letter-spacing: .06em; }
+.study-card strong { color: var(--a11y-text) !important; font-size: 1rem; line-height: 1.5; }
+
+.study-deck__controls {
+  display: grid;
+  grid-template-columns: 48px 74px 48px 1fr 1.25fr;
+  gap: 8px;
+  padding: 14px 16px;
+  border-top: 2px solid var(--a11y-text);
+  background: #eef3f8;
+}
+.study-deck__controls button,
+.study-deck__controls a,
+.study-deck__slots button {
+  min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--a11y-text);
+  background: #fff;
+  border: 2px solid var(--a11y-text);
+  box-shadow: 2px 2px 0 #aeb8c2;
+  font: 900 .7rem/1 "Courier New", monospace;
+  text-decoration: none;
+  cursor: pointer;
+}
+.study-deck__controls button:hover,
+.study-deck__controls a:hover,
+.study-deck__slots button:hover { background: #fff8d9; }
+.study-deck__controls button:active,
+.study-deck__controls a:active,
+.study-deck__slots button:active { transform: translate(2px, 2px); box-shadow: none; }
+.study-deck__controls .deck-flip { color: #fff; background: var(--bau-red); }
+.study-deck__controls .deck-shuffle { color: #fff; background: var(--bau-blue); }
+
+.study-deck__slots {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  scrollbar-color: var(--a11y-line) transparent;
+}
+.study-deck__slots button { flex: 0 0 44px; min-height: 44px; height: 44px; border-width: 1px; box-shadow: none; color: #30404f; }
+.study-deck__slots button.is-active { color: #fff; background: var(--a11y-text); }
+
+.workflow-panel {
+  margin-top: 0;
+  margin-bottom: 54px;
+  padding: 20px 22px;
+  border-top-color: var(--bau-blue);
+}
+.workflow-panel > p { margin-bottom: 6px; }
+.workflow-panel ol { display: grid; grid-template-columns: repeat(4, 1fr); }
+.workflow-panel li { min-width: 0; padding: 12px 14px; border-right: 1px solid #d8dde2; border-bottom: 0; }
+.workflow-panel li:last-child { border-right: 0; }
+
+@media (max-width: 900px) {
+  .study-deck__controls { grid-template-columns: 48px 1fr 48px; }
+  .study-deck__controls .deck-shuffle,
+  .study-deck__controls a { min-height: 44px; }
+  .study-deck__controls .deck-shuffle { grid-column: 1 / 2; }
+  .study-deck__controls a { grid-column: 2 / 4; }
+  .workflow-panel ol { grid-template-columns: 1fr 1fr; }
+  .workflow-panel li:nth-child(2) { border-right: 0; }
+  .workflow-panel li:nth-child(-n+2) { border-bottom: 1px solid #d8dde2; }
+}
+
+@media (max-width: 720px) {
+  .study-deck { box-shadow: 5px 5px 0 #c9d1da; }
+  .study-deck__bar { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .study-deck__screen { padding: 14px; }
+  .study-card { min-height: 126px; }
+  .workflow-panel { margin-bottom: 40px; }
+  .workflow-panel ol { grid-template-columns: 1fr; }
+  .workflow-panel li { border-right: 0; border-bottom: 1px solid #d8dde2 !important; }
+  .workflow-panel li:last-child { border-bottom: 0 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .study-card,
+  .study-deck__controls button,
+  .study-deck__controls a,
+  .study-deck__slots button { transition: none; }
+}
