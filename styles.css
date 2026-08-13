@@ -1855,15 +1855,14 @@ main :where(
 
 .study-deck__controls {
   display: grid;
-  grid-template-columns: 48px 74px 48px 1fr 1.25fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   padding: 14px 16px;
   border-top: 2px solid var(--a11y-text);
   background: #eef3f8;
 }
 .study-deck__controls button,
-.study-deck__controls a,
-.study-deck__slots button {
+.study-deck__controls a {
   min-height: 44px;
   display: inline-grid;
   place-items: center;
@@ -1876,23 +1875,11 @@ main :where(
   cursor: pointer;
 }
 .study-deck__controls button:hover,
-.study-deck__controls a:hover,
-.study-deck__slots button:hover { background: #fff8d9; }
+.study-deck__controls a:hover { background: #fff8d9; }
 .study-deck__controls button:active,
-.study-deck__controls a:active,
-.study-deck__slots button:active { transform: translate(2px, 2px); box-shadow: none; }
+.study-deck__controls a:active { transform: translate(2px, 2px); box-shadow: none; }
 .study-deck__controls .deck-flip { color: #fff; background: var(--bau-red); }
 .study-deck__controls .deck-shuffle { color: #fff; background: var(--bau-blue); }
-
-.study-deck__slots {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 0 16px 16px;
-  scrollbar-color: var(--a11y-line) transparent;
-}
-.study-deck__slots button { flex: 0 0 44px; min-height: 44px; height: 44px; border-width: 1px; box-shadow: none; color: #30404f; }
-.study-deck__slots button.is-active { color: #fff; background: var(--a11y-text); }
 
 .workflow-panel {
   margin-top: 0;
@@ -1906,11 +1893,6 @@ main :where(
 .workflow-panel li:last-child { border-right: 0; }
 
 @media (max-width: 900px) {
-  .study-deck__controls { grid-template-columns: 48px 1fr 48px; }
-  .study-deck__controls .deck-shuffle,
-  .study-deck__controls a { min-height: 44px; }
-  .study-deck__controls .deck-shuffle { grid-column: 1 / 2; }
-  .study-deck__controls a { grid-column: 2 / 4; }
   .workflow-panel ol { grid-template-columns: 1fr 1fr; }
   .workflow-panel li:nth-child(2) { border-right: 0; }
   .workflow-panel li:nth-child(-n+2) { border-bottom: 1px solid #d8dde2; }
@@ -1930,6 +1912,5 @@ main :where(
 @media (prefers-reduced-motion: reduce) {
   .study-card,
   .study-deck__controls button,
-  .study-deck__controls a,
-  .study-deck__slots button { transition: none; }
+  .study-deck__controls a { transition: none; }
 }
