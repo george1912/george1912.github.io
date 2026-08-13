@@ -1601,3 +1601,193 @@ h1 { font-size: clamp(3.15rem, 6vw, 5.6rem); line-height: .94; letter-spacing: -
   .hero { padding: 52px 0; }
   h1 { font-size: clamp(3rem, 15vw, 4.2rem); }
 }
+
+/* WCAG AA accessibility layer — keep this last so legacy themes cannot reduce contrast. */
+:root {
+  --bau-red: #9b2d24;
+  --bau-blue: #17477f;
+  --bau-yellow: #f2cf52;
+  --a11y-text: #111820;
+  --a11y-copy: #27333f;
+  --a11y-muted: #3e4b57;
+  --a11y-link: #0b4f96;
+  --a11y-line: #68747f;
+  --a11y-soft: #f2f4f6;
+  --a11y-focus: #005fcc;
+}
+
+body { color: var(--a11y-text); }
+main:focus { outline: none; }
+main :where(h1, h2, h3, h4, strong, b) { color: var(--a11y-text); }
+main :where(p, li, dd, dt, small) { color: var(--a11y-copy); }
+main :where(p, li) { font-size: 1rem !important; }
+main small { color: var(--a11y-copy) !important; font-size: .86rem !important; }
+main article > span { font-size: .8rem !important; }
+main .eyebrow,
+main .section-number { color: var(--a11y-muted) !important; font-size: .8rem !important; }
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 10px;
+  left: 10px;
+  padding: 11px 14px;
+  color: #fff;
+  background: var(--a11y-text);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px var(--a11y-focus);
+  font-weight: 800;
+  text-decoration: underline;
+  transform: translateY(-180%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+:where(a, button, input, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--a11y-focus) !important;
+  outline-offset: 3px !important;
+}
+.detail-toggle:focus-visible ~ .view-mode label {
+  outline: 3px solid var(--a11y-focus);
+  outline-offset: 3px;
+}
+
+.module-nav a,
+.primary-button,
+.view-mode label {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.module-nav a { color: var(--a11y-text); }
+.module-nav a:nth-child(3n+1) span { color: #8a281f; }
+.module-nav a:nth-child(3n+2) span { color: #17477f; }
+.module-nav a:nth-child(3n) span { color: #715400; }
+.text-link,
+.source-links a { color: var(--a11y-link); text-decoration: underline; text-underline-offset: 4px; }
+.source-links a strong { color: var(--a11y-link); }
+
+.complete-chip :where(span, strong, small),
+.feeding-chip :where(span, strong, small),
+.contraception-chip :where(span, strong, small),
+.sti-chip :where(span, strong, small),
+.labor-pain-chip :where(span, strong, small),
+.postpartum-chip :where(span, strong, small) { color: var(--a11y-text) !important; }
+
+.method-ladder article {
+  color: var(--a11y-text) !important;
+  background: #fff !important;
+  border: 1px solid var(--a11y-line) !important;
+}
+.method-ladder :where(span, strong, p) { color: var(--a11y-text) !important; }
+
+section[id] { scroll-margin-top: 74px; }
+
+/* Older modules used dark olive and brown panels. Normalize them to one readable surface. */
+main :where(
+  .skeletal-note,
+  .reflex-memory,
+  .baseline-jump,
+  .first-care-strip,
+  .bili-rule,
+  .pregnancy-screen,
+  .move-board,
+  .stop-drop,
+  .system-console,
+  .circulation-panel,
+  .cold-stress,
+  .document-panel,
+  .ballard-panel,
+  .call-panel,
+  .storage-board,
+  .formula-board,
+  .ec-panel,
+  .epidural-nursing,
+  .hemorrhage-panel,
+  .warning-panel,
+  .mood-board
+) {
+  color: var(--a11y-text) !important;
+  background: var(--a11y-soft) !important;
+  border: 2px solid var(--a11y-text) !important;
+  box-shadow: none !important;
+}
+main :where(
+  .skeletal-note,
+  .reflex-memory,
+  .baseline-jump,
+  .first-care-strip,
+  .bili-rule,
+  .pregnancy-screen,
+  .move-board,
+  .stop-drop,
+  .system-console,
+  .circulation-panel,
+  .cold-stress,
+  .document-panel,
+  .ballard-panel,
+  .call-panel,
+  .storage-board,
+  .formula-board,
+  .ec-panel,
+  .epidural-nursing,
+  .hemorrhage-panel,
+  .warning-panel,
+  .mood-board
+) :where(h2, h3, h4, p, li, small, strong, b, span, i) {
+  color: var(--a11y-text) !important;
+}
+
+/* The monitor intentionally stays dark; every label on it uses high-contrast light text. */
+.monitor { color: #fff; background: var(--a11y-text); border-color: var(--a11y-text); }
+.monitor :where(span, strong, small) { color: #fff !important; }
+.monitor-reading > div { border-color: #aeb8c2; }
+
+/* Keep the STOP mnemonic visually distinct without placing dark text on brown. */
+.stop-drop {
+  grid-template-columns: minmax(220px, .7fr) 1.3fr;
+  gap: 0;
+  padding: 0;
+  background: #fff !important;
+}
+.stop-drop > div {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px;
+  background: var(--a11y-text);
+}
+.stop-drop > div :where(span, strong) { color: #fff !important; }
+.stop-drop > p { margin: 0; padding: 18px; color: var(--a11y-text) !important; font-size: 1rem; line-height: 1.6; }
+.stop-drop > div span { font-size: .8rem; }
+.document-list { background: var(--a11y-line); border-color: var(--a11y-line); }
+.document-list p { color: var(--a11y-text) !important; background: #fff !important; }
+
+/* Yellow accents always carry dark text; red and blue accents always carry white text. */
+.orientation-panel li:nth-child(2) > span,
+.category-grid article:nth-child(3) > span,
+.emergency-nevers span { color: #fff !important; background: var(--bau-red) !important; }
+.orientation-panel li:nth-child(3) > span { color: #fff !important; background: var(--bau-blue) !important; }
+.orientation-panel li:nth-child(4) > span,
+.gtpal-grid article:nth-child(4) > span,
+.category-grid article:nth-child(2) > span { color: var(--a11y-text) !important; background: var(--bau-yellow) !important; }
+
+@media (max-width: 720px) {
+  .stop-drop { grid-template-columns: 1fr; }
+  main :where(p, li) { font-size: 1rem; }
+}
+
+@media (prefers-contrast: more) {
+  :root { --a11y-line: #111820; }
+  main article,
+  main aside,
+  .module-nav,
+  .view-mode { border-color: var(--a11y-text) !important; }
+  a { text-decoration-thickness: 2px; }
+}
+
+@media (forced-colors: active) {
+  .skip-link,
+  .monitor,
+  .stop-drop > div { forced-color-adjust: auto; }
+}
