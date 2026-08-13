@@ -1031,6 +1031,149 @@ footer { min-height: 96px; gap: 24px; }
   footer { padding: 42px 0; grid-template-columns: 1fr; gap: 18px; } footer > span { text-align: left; }
 }
 
+/* Bauhaus reading pass: larger type, strong grid, minimal primary accents. */
+:root {
+  --bau-red: #d54435;
+  --bau-blue: #1d4f91;
+  --bau-yellow: #e8bd35;
+}
+
+html { font-size: 16.5px; }
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.62; }
+main :where(p, li) { font-size: .9rem; line-height: 1.62; }
+main small { font-size: .76rem; line-height: 1.45; }
+main :where(article > span, article > div > span, .card-status, .route-label, .stat-unit) { font-size: .7rem; letter-spacing: .055em; }
+
+.site-header { min-height: 70px; }
+.brand { font-size: .78rem; letter-spacing: .035em; }
+.brand-mark { width: 34px; height: 34px; background: var(--bau-red); border-radius: 50%; font-size: .65rem; }
+.status-dot { background: var(--bau-blue); }
+.module-nav { font-size: .74rem; }
+.module-nav a, .module-nav a:last-child { padding: 13px 15px; }
+.module-nav a:nth-child(3n+1) span { color: var(--bau-red); }
+.module-nav a:nth-child(3n+2) span { color: var(--bau-blue); }
+.module-nav a:nth-child(3n) span { color: #93720a; }
+
+.view-mode span { font-size: .7rem; }
+.view-mode strong, .view-mode small { font-size: .8rem; }
+.view-mode label { font-size: .72rem; }
+.hero { padding: 72px 0 68px; }
+h1 { font-size: clamp(3.15rem, 6vw, 5.6rem); line-height: .94; letter-spacing: -.068em; }
+.lede { font-size: 1.06rem; }
+.eyebrow, .section-number { font-size: .72rem; letter-spacing: .085em; }
+.eyebrow::before, .section-number::before { width: 11px; height: 11px; background: var(--bau-red); }
+.section-heading h2, .sources h2, .system-heading h2, .physiology-hero .section-heading h2 { font-size: clamp(2rem, 3.8vw, 3.15rem); line-height: 1.05; }
+.section-heading > p:last-child { font-size: .98rem; }
+.primary-button { font-size: .76rem; border-radius: 0; }
+.orientation-panel, .charting-grid article, main article, .view-mode label, .source-links a { border-radius: 0; }
+.orientation-panel { border-top: 7px solid var(--bau-blue); }
+.orientation-panel li > span { border: 0; border-radius: 0; background: #20262d; color: #fff; }
+.orientation-panel li:nth-child(2) > span { background: var(--bau-red); }
+.orientation-panel li:nth-child(3) > span { background: var(--bau-blue); }
+.orientation-panel li:nth-child(4) > span { background: #a67f0f; }
+.charting-standard { border-top: 1px solid #d8dde2; }
+.charting-grid article:nth-child(1) { border-top: 5px solid var(--bau-red); }
+.charting-grid article:nth-child(2) { border-top: 5px solid var(--bau-blue); }
+.charting-grid article:nth-child(3) { border-top: 5px solid var(--bau-yellow); }
+
+.prenatal-section, .pregnancy-complications-section, .fetal-monitoring-section, .labor-emergencies-section { padding: 66px 0 70px; background: #fff; border-bottom: 1px solid #d8dde2; }
+.prenatal-section { border-top: 10px solid var(--bau-yellow); }
+.pregnancy-complications-section { border-top: 10px solid var(--bau-red); }
+.fetal-monitoring-section { border-top: 10px solid var(--bau-blue); }
+.labor-emergencies-section { border-top: 10px solid #20262d; }
+
+.gtpal-grid { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 30px; border: 1px solid #bfc6cc; }
+.gtpal-grid article { min-height: 190px; padding: 20px; border-right: 1px solid #bfc6cc !important; }
+.gtpal-grid article:last-child { border-right: 0 !important; }
+.gtpal-grid article > span { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 28px; background: #20262d; color: #fff; font-size: 1rem; font-weight: 800; }
+.gtpal-grid article:nth-child(2) > span { background: var(--bau-red); }
+.gtpal-grid article:nth-child(3) > span { background: var(--bau-blue); }
+.gtpal-grid article:nth-child(4) > span { background: #a67f0f; }
+.gtpal-grid strong, .fhr-basics strong, .category-grid strong { display: block; font-size: .95rem; }
+.gtpal-grid p, .fhr-basics p, .category-grid p { margin: 7px 0 0; }
+.module-memory { margin: 0; padding: 15px 18px; background: #f4f5f6; border-left: 7px solid #20262d; }
+.dating-panel, .magnesium-panel, .fhr-response { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; margin-top: 24px; padding: 22px; background: #f4f5f6; border: 1px solid #cfd5da; }
+.dating-panel > div, .magnesium-panel > div:first-child, .fhr-response > div { display: flex; flex-direction: column; gap: 8px; }
+.dating-panel span, .magnesium-panel span, .fhr-response span { font-size: .7rem; font-weight: 800; letter-spacing: .07em; }
+.dating-panel strong, .magnesium-panel strong, .fhr-response strong { font-size: 1.05rem; line-height: 1.35; }
+.dating-panel p, .fhr-response p { margin: 0; }
+.prenatal-chart-grid, .postpartum-gap-grid, .newborn-risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 24px; }
+.postpartum-gap-grid { grid-template-columns: repeat(2, 1fr); }
+.newborn-risk-grid { grid-template-columns: repeat(4, 1fr); }
+.prenatal-chart-grid article, .postpartum-gap-grid article, .newborn-risk-grid article { padding: 19px; border: 1px solid #d8dde2; }
+.prenatal-chart-grid article > span, .postpartum-gap-grid article > span, .newborn-risk-grid article > span { display: block; margin-bottom: 24px; color: #59636d; font-weight: 800; }
+.prenatal-chart-grid strong, .postpartum-gap-grid strong, .newborn-risk-grid strong { display: block; font-size: .93rem; }
+.prenatal-chart-grid p, .postpartum-gap-grid p, .newborn-risk-grid p { margin: 8px 0 0; }
+
+.risk-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
+.risk-column { padding: 24px; border: 1px solid #bfc6cc !important; border-top: 7px solid var(--bau-yellow) !important; }
+.risk-column + .risk-column { border-top-color: var(--bau-red) !important; }
+.risk-column > span { color: #59636d; font-weight: 800; }
+.risk-column h3 { margin: 32px 0 14px; font-size: 1.25rem; line-height: 1.2; }
+.risk-column ul { margin: 0; padding-left: 20px; }
+.risk-column li + li { margin-top: 9px; }
+.magnesium-panel { border-left: 8px solid var(--bau-blue); }
+.magnesium-checks { display: grid; gap: 10px; }
+.magnesium-checks p { margin: 0; }
+.nursing-close { margin-top: 24px; padding: 17px 19px; background: #f4f5f6 !important; border: 1px solid #cfd5da !important; border-left: 8px solid #20262d !important; }
+.nursing-close p { margin: 6px 0 0; }
+
+.fhr-basics { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 30px; border: 1px solid #bfc6cc; }
+.fhr-basics article { min-height: 160px; padding: 19px; border-right: 1px solid #bfc6cc !important; }
+.fhr-basics article:last-child { border-right: 0 !important; }
+.fhr-basics article > span { display: block; margin-bottom: 24px; color: #59636d; font-weight: 800; }
+.veal-chop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
+.veal-chop article { padding: 18px; border: 1px solid #d8dde2; border-top: 6px solid var(--bau-blue) !important; }
+.veal-chop article:nth-child(2) { border-top-color: var(--bau-yellow) !important; }
+.veal-chop article:nth-child(3) { border-top-color: #20262d !important; }
+.veal-chop article:nth-child(4) { border-top-color: var(--bau-red) !important; }
+.veal-chop article > span { display: block; margin-bottom: 25px; font-size: .9rem; font-weight: 800; }
+.veal-chop strong { display: block; }
+.veal-chop p { margin: 8px 0 0; }
+.category-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 24px; border: 1px solid #bfc6cc; }
+.category-grid article { min-height: 180px; padding: 20px; border-right: 1px solid #bfc6cc !important; }
+.category-grid article:last-child { border-right: 0 !important; }
+.category-grid article > span { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 24px; background: #20262d; color: #fff; font-size: .95rem; font-weight: 800; }
+.category-grid article:nth-child(2) > span { background: var(--bau-yellow); color: #20262d; }
+.category-grid article:nth-child(3) > span { background: var(--bau-red); }
+.fhr-response { border-left: 8px solid var(--bau-blue); }
+
+.emergency-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+.emergency-compare article { min-height: 230px; padding: 19px; border: 1px solid #d8dde2; border-top: 6px solid #20262d !important; }
+.emergency-compare article:nth-child(1), .emergency-compare article:nth-child(4) { border-top-color: var(--bau-red) !important; }
+.emergency-compare article:nth-child(2), .emergency-compare article:nth-child(5) { border-top-color: var(--bau-blue) !important; }
+.emergency-compare article:nth-child(3), .emergency-compare article:nth-child(6) { border-top-color: var(--bau-yellow) !important; }
+.emergency-compare article > span { display: block; min-height: 36px; margin-bottom: 24px; color: #59636d; font-weight: 800; }
+.emergency-compare strong { display: block; font-size: .95rem; }
+.emergency-compare p { margin: 8px 0 0; }
+.emergency-nevers { display: grid; grid-template-columns: 120px 1fr; margin-top: 24px; border: 1px solid #20262d; }
+.emergency-nevers span { display: grid; place-items: center; padding: 18px; background: var(--bau-red); color: #fff; font-size: .9rem; font-weight: 900; letter-spacing: .08em; }
+.emergency-nevers p { margin: 0; padding: 18px; color: #20262d; }
+
+@media (max-width: 900px) {
+  .gtpal-grid { grid-template-columns: repeat(2, 1fr); }
+  .gtpal-grid article { border-bottom: 1px solid #bfc6cc !important; }
+  .gtpal-grid article:nth-child(even) { border-right: 0 !important; }
+  .gtpal-grid article:last-child { grid-column: 1 / -1; }
+  .newborn-risk-grid, .fhr-basics, .veal-chop { grid-template-columns: repeat(2, 1fr); }
+  .fhr-basics article:nth-child(2) { border-right: 0 !important; }
+  .fhr-basics article:nth-child(-n+2) { border-bottom: 1px solid #bfc6cc !important; }
+  .emergency-compare { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  html { font-size: 16px; }
+  .hero { padding: 52px 0; }
+  h1 { font-size: clamp(3rem, 15vw, 4.2rem); }
+  .prenatal-section, .pregnancy-complications-section, .fetal-monitoring-section, .labor-emergencies-section { padding: 48px 0 52px; }
+  .risk-columns, .prenatal-chart-grid, .postpartum-gap-grid, .newborn-risk-grid, .fhr-basics, .veal-chop, .category-grid, .emergency-compare, .dating-panel, .magnesium-panel, .fhr-response { grid-template-columns: 1fr; }
+  .gtpal-grid { grid-template-columns: 1fr; }
+  .gtpal-grid article, .fhr-basics article, .category-grid article { min-height: 0; border-right: 0 !important; border-bottom: 1px solid #bfc6cc !important; }
+  .gtpal-grid article:last-child, .fhr-basics article:last-child, .category-grid article:last-child { border-bottom: 0 !important; }
+  .gtpal-grid article:last-child { grid-column: auto; }
+  .emergency-nevers { grid-template-columns: 1fr; }
+}
+
 /* Clinical orientation redesign */
 :root {
   --paper: #ffffff;
@@ -1423,4 +1566,38 @@ h1 { font-size: clamp(2.7rem, 5vw, 4.5rem); line-height: 1.02; letter-spacing: -
   h1 { font-size: clamp(2.45rem, 12vw, 3.4rem); }
   .module-nav { padding-inline: 14px; }
   .transition, .interpret, .apgar-section, .physiology-hero, .system-section, .gi-section, .heat-section, .blood-section, .physiology-practice, .baseline-section, .head-to-toe-section, .movement-section, .daily-care-section, .gestation-section, .home-care-section, .feeding-section, .contraception-section, .sti-section, .labor-pain-section, .postpartum-section, .sources { padding-top: 42px; padding-bottom: 46px; }
+}
+
+/* Activate the Bauhaus scale after legacy theme layers. */
+html { font-size: 16.5px; }
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.62; }
+main :where(p, li) { font-size: .9rem; line-height: 1.62; }
+main small { font-size: .76rem; }
+.site-header { min-height: 70px; }
+.brand { font-size: .78rem; }
+.brand-mark { width: 34px; height: 34px; background: var(--bau-red); border-radius: 50%; font-size: .65rem; }
+.status-dot { background: var(--bau-blue); }
+.module-nav { font-size: .74rem; }
+.module-nav a, .module-nav a:last-child { padding: 13px 15px; }
+.module-nav a:nth-child(3n+1) span { color: var(--bau-red); }
+.module-nav a:nth-child(3n+2) span { color: var(--bau-blue); }
+.module-nav a:nth-child(3n) span { color: #93720a; }
+.view-mode span { font-size: .7rem; }
+.view-mode strong, .view-mode small { font-size: .8rem; }
+.view-mode label { font-size: .72rem; }
+.hero { padding: 72px 0 68px; }
+h1 { font-size: clamp(3.15rem, 6vw, 5.6rem); line-height: .94; letter-spacing: -.068em; }
+.lede { font-size: 1.06rem; }
+.eyebrow, .section-number { font-size: .72rem; }
+.eyebrow::before, .section-number::before { width: 11px; height: 11px; background: var(--bau-red); }
+.section-heading h2, .sources h2, .system-heading h2, .physiology-hero .section-heading h2 { font-size: clamp(2rem, 3.8vw, 3.15rem); line-height: 1.05; }
+.section-heading > p:last-child { font-size: .98rem; }
+.primary-button { font-size: .76rem; border-radius: 0; }
+.orientation-panel { border-top: 7px solid var(--bau-blue); }
+.orientation-panel, .charting-grid article, main article, .view-mode label, .source-links a { border-radius: 0; }
+
+@media (max-width: 720px) {
+  html { font-size: 16px; }
+  .hero { padding: 52px 0; }
+  h1 { font-size: clamp(3rem, 15vw, 4.2rem); }
 }
