@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brightspace Sync — Mac app</title>
+  <meta name="description" content="A clean Mac app that downloads your Brightspace class files and can make PDFs. Simple update. Local on your computer." />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="hero">
+      <img class="logo" src="icon.png" width="72" height="72" alt="" />
+      <p class="brand">Brightspace Sync</p>
+      <h1>Your classes. On your Mac. Updated in one tap.</h1>
+      <p class="lede">
+        A small desktop app that pulls Brightspace course files into a folder you choose —
+        and can turn Word and PowerPoint into PDFs when you want them.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" id="downloadBtn" href="https://github.com/george1912/george1912.github.io/releases/download/brightspace-sync-1.0.0/Brightspace.Sync-1.0.0-arm64.dmg">
+          Download for Mac
+        </a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
+      <p class="meta">Apple Silicon · macOS · Free personal build</p>
+    </header>
+
+    <section class="band" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">What it can do</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-n" aria-hidden="true">1</span>
+          <div>
+            <h3>Update your classes</h3>
+            <p>Signs into Brightspace once, then downloads the latest Content into <strong>Synced Courses</strong>.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">2</span>
+          <div>
+            <h3>Make PDFs</h3>
+            <p>Optional. Converts new or missing Office files with LibreOffice — originals stay put.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">3</span>
+          <div>
+            <h3>Stays on your Mac</h3>
+            <p>No cloud account for the app. Login session and files live on your computer.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="band soft" aria-labelledby="install-title">
+      <h2 id="install-title">Install in a minute</h2>
+      <ol class="install">
+        <li>Open the DMG and drag <strong>Brightspace Sync</strong> to Applications.</li>
+        <li>Open the app. If macOS blocks it, right-click → <strong>Open</strong> once.</li>
+        <li>On Setup: pick a save folder and add your course codes (or tap “Use my usual classes”).</li>
+        <li>Go to Update → <strong>Update my classes</strong> and sign in when asked.</li>
+      </ol>
+    </section>
+
+    <section class="band" aria-labelledby="note-title">
+      <h2 id="note-title">Good to know</h2>
+      <ul class="notes">
+        <li>Built for nursing school workflows — short course codes, pinned classes, quiet updates.</li>
+        <li>PDF conversion needs <a href="https://www.libreoffice.org/" rel="noopener">LibreOffice</a> installed.</li>
+        <li>Unsigned personal build for now: Gatekeeper may ask you to confirm Open the first time.</li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <p class="brand-mini">Brightspace Sync</p>
+      <p>Private source · Public download page</p>
+      <a class="btn primary foot-btn" href="https://github.com/george1912/george1912.github.io/releases/download/brightspace-sync-1.0.0/Brightspace.Sync-1.0.0-arm64.dmg">Download for Mac</a>
+    </footer>
+  </main>
+</body>
+</html>
