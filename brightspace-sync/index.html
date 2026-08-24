@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brightspace Sync — Mac app</title>
-  <meta name="description" content="A clean Mac app that syncs your pinned Brightspace classes and can make PDFs. Simple update. Local on your computer." />
+  <meta name="description" content="Pin your Brightspace classes. Update once. Files stay on your Mac." />
   <link rel="icon" type="image/png" href="icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,70 +18,86 @@
     <header class="hero">
       <img class="logo" src="icon.png" width="72" height="72" alt="" />
       <p class="brand">Brightspace Sync</p>
-      <h1>Pin your classes. Update once. Files on your Mac.</h1>
+      <h1>Pin. Update. Files on your Mac.</h1>
       <p class="lede">
-        Syncs whatever you have pinned in Brightspace into a folder you choose —
-        and can turn Word and PowerPoint into PDFs when you want them.
+        Syncs your pinned Brightspace classes into a folder you choose.
+        Optional PDFs when you want them.
       </p>
       <div class="cta-row">
-        <a class="btn primary" id="downloadBtn" href="https://github.com/george1912/george1912.github.io/releases/download/brightspace-sync-1.0.2/Brightspace.Sync-1.0.2-arm64.dmg">
+        <a class="btn primary" id="downloadBtn" href="https://github.com/george1912/george1912.github.io/releases/download/brightspace-sync-1.0.3/Brightspace.Sync-1.0.3-arm64.dmg">
           Download for Mac
         </a>
         <a class="btn ghost" href="#how">How it works</a>
       </div>
-      <p class="meta">Apple Silicon · macOS · Pin-first sync · v1.0.2</p>
+      <p class="meta">Apple Silicon · macOS · v1.0.3</p>
     </header>
 
     <section class="band" id="how" aria-labelledby="how-title">
-      <h2 id="how-title">What it can do</h2>
+      <h2 id="how-title">How to use it</h2>
       <ol class="steps">
         <li>
           <span class="step-n" aria-hidden="true">1</span>
           <div>
-            <h3>Syncs your pins</h3>
-            <p>Whatever is pinned in Brightspace gets updated. Unpin last term; pin this term.</p>
+            <h3>Pin in Brightspace</h3>
+            <p>All Courses → Pinned. Only pin this term’s classes.</p>
           </div>
         </li>
         <li>
           <span class="step-n" aria-hidden="true">2</span>
           <div>
-            <h3>Archive old folders</h3>
-            <p>When Summer classes are no longer pinned, one tap moves their folders to Archive — nothing deleted.</p>
+            <h3>Tap Update</h3>
+            <p>Sign in if asked. The app syncs whatever is pinned.</p>
           </div>
         </li>
         <li>
           <span class="step-n" aria-hidden="true">3</span>
           <div>
             <h3>Optional PDFs</h3>
-            <p>Converts new or missing Office files with LibreOffice — originals stay put.</p>
+            <p>Make PDFs for new Office files. LibreOffice required.</p>
           </div>
         </li>
       </ol>
     </section>
 
     <section class="band soft" aria-labelledby="install-title">
-      <h2 id="install-title">Install in a minute</h2>
+      <h2 id="install-title">Install</h2>
       <ol class="install">
-        <li>Open the DMG and drag <strong>Brightspace Sync</strong> to Applications.</li>
-        <li>Open the app. If macOS blocks it, right-click → <strong>Open</strong> once.</li>
-        <li>In Brightspace, pin this term’s classes (unpin last term).</li>
-        <li>In the app: Update → sign in → Archive old folders if offered.</li>
+        <li>Open the DMG → drag <strong>Brightspace Sync</strong> to Applications.</li>
+        <li>Open it from Applications (not from the DMG).</li>
+        <li>If macOS says it’s damaged or blocked, see below — then open again.</li>
+        <li>Pin classes in Brightspace → tap <strong>Update</strong> in the app.</li>
       </ol>
     </section>
 
-    <section class="band" aria-labelledby="note-title">
+    <section class="band" aria-labelledby="fix-title">
+      <h2 id="fix-title">If macOS says the app is damaged</h2>
+      <p class="lede" style="margin:0 0 12px;font-size:1rem">
+        This happens on personal (not-yet-notarized) builds. The file is fine — macOS is blocking the download quarantine.
+      </p>
+      <ol class="install">
+        <li>Open <strong>Terminal</strong>.</li>
+        <li>Paste this and press Return:</li>
+      </ol>
+      <pre style="margin:0 0 14px;padding:14px;border-radius:10px;background:#0f172a;color:#e2e8f0;overflow:auto;font-size:0.85rem">xattr -cr "/Applications/Brightspace Sync.app"</pre>
+      <ol class="install" start="3">
+        <li>Open <strong>Brightspace Sync</strong> from Applications again.</li>
+      </ol>
+      <p class="notes" style="list-style:none;padding:0">Or: right-click the app → <strong>Open</strong> → confirm once.</p>
+    </section>
+
+    <section class="band soft" aria-labelledby="note-title">
       <h2 id="note-title">Good to know</h2>
       <ul class="notes">
-        <li>Built for nursing school workflows — pins, quiet updates, optional PDF catch-up.</li>
-        <li>PDF conversion needs <a href="https://www.libreoffice.org/" rel="noopener">LibreOffice</a> installed.</li>
-        <li>Unsigned personal build for now: Gatekeeper may ask you to confirm Open the first time.</li>
+        <li>Files stay on your Mac in <strong>Synced Courses</strong>.</li>
+        <li>PDFs need <a href="https://www.libreoffice.org/" rel="noopener">LibreOffice</a>.</li>
+        <li>Apple Silicon only for this build.</li>
       </ul>
     </section>
 
     <footer class="foot">
       <p class="brand-mini">Brightspace Sync</p>
-      <p>Private source · Public download page</p>
-      <a class="btn primary foot-btn" href="https://github.com/george1912/george1912.github.io/releases/download/brightspace-sync-1.0.2/Brightspace.Sync-1.0.2-arm64.dmg">Download for Mac</a>
+      <p>Private source · Public download</p>
+      <a class="btn primary foot-btn" href="https://github.com/george1912/george1912.github.io/releases/download/brightspace-sync-1.0.3/Brightspace.Sync-1.0.3-arm64.dmg">Download for Mac</a>
     </footer>
   </main>
 </body>
