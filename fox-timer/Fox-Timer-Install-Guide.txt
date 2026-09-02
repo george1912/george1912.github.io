@@ -1,13 +1,15 @@
-Fox Timer — Install & Use Guide
-================================
+ATI Assistant Timer — Install & Use Guide
+=========================================
+
+Also known as Fox Timer (fox icon in Chrome).
 
 Recommended browser: Google Chrome
 
 
 WHAT IT IS
 ----------
-Fox Timer is a small Chrome extension that helps keep ATI pages
-from timing out while you work.
+ATI Assistant Timer is a Chrome extension that helps keep ATI pages
+from timing out while you study.
 
 
 WHICH DOWNLOAD?
@@ -47,7 +49,7 @@ INSTALL ON MAC
 HOW TO USE
 ----------
 1. Open your ATI page in Chrome.
-2. Click the Fox Timer icon.
+2. Click the fox icon (ATI Assistant Timer).
 3. Choose what you are working on.
 4. Enter how many minutes you want.
 5. Press Play.
@@ -68,7 +70,7 @@ IF SOMETHING GOES WRONG
 You can remove it anytime:
 
 1. Go to chrome://extensions
-2. Find Fox Timer / ITA Lecture Assist Timer
+2. Find ATI Assistant Timer
 3. Click Remove
 
 No account. No subscription. It just uninstalls.
@@ -80,4 +82,4 @@ TIPS
 • Try a short timer first (2–5 minutes)
 • Advanced options can be ignored
 
-Version 1.0.2
+Version 1.1.0
