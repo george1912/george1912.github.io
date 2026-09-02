@@ -82,4 +82,4 @@ TIPS
 • Try a short timer first (2–5 minutes)
 • Advanced options can be ignored
 
-Version 1.5.0
+Version 1.5.1
